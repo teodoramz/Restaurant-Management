@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Restaurant-Management": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

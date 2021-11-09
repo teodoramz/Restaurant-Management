@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <RootNamespace>Restaurant_Management</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Imagini\food-serving.png" />
+    <None Remove="Imagini\restaurant1.png" />
+    <None Remove="Imagini\restaurant2.png" />
+    <None Remove="Imagini\restaurant3.png" />
+    <None Remove="Imagini\teoo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imagini\food-serving.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagini\restaurant1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagini\restaurant2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagini\restaurant3.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Imagini\teoo.png" />
+  </ItemGroup>
+
+</Project>
