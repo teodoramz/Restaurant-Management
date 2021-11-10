@@ -22,3 +22,5 @@ C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Man
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Restaurant-Management.genruntimeconfig.cache
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Window1.g.cs
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Window1.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\LoginWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\LoginWindow.baml

@@ -13,5 +13,13 @@ namespace Restaurant_Management
     /// </summary>
     public partial class App : Application
     {
+        public bool IsShuttingDown { get; private set; }
+
+        public new void Shutdown(int exitCode = 0)
+        {
+            this.IsShuttingDown = true;
+            base.Shutdown(exitCode);
+        }
+
     }
 }

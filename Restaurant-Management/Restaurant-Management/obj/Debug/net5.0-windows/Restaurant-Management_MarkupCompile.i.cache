@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\App.xaml
-11407045341
+3317095513
 
-5375809524
+7693843245
 193-1891726104
-MainWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;Window1.xaml;
 
-False
+True
 
