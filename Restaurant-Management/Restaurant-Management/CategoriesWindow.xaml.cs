@@ -56,12 +56,6 @@ namespace Restaurant_Management
 
         }
 
-        private void employersButton_Click(object sender, RoutedEventArgs e)
-        {
-            // clear la textboxuri / comboboxuri sau ce mai punem aici
-            // in rest DO NOTHING
-        }
-
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {
             ProductsWindow pw = new ProductsWindow();

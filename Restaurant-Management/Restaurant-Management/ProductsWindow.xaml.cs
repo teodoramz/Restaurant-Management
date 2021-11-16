@@ -55,12 +55,6 @@ namespace Restaurant_Management
 
         }
 
-        private void employersButton_Click(object sender, RoutedEventArgs e)
-        {
-            EmployeesWindow ew = new EmployeesWindow();
-            ew.Show();
-            this.Hide();
-        }
 
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {
