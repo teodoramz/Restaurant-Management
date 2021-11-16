@@ -1,0 +1,219 @@
+USE [master]
+GO
+/****** Object:  Database [Restaurant-Management]    Script Date: 11/16/2021 6:24:58 PM ******/
+CREATE DATABASE [Restaurant-Management]
+GO
+ALTER DATABASE [Restaurant-Management] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Restaurant-Management] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Restaurant-Management] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Restaurant-Management] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Restaurant-Management] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET RECOVERY FULL 
+GO
+ALTER DATABASE [Restaurant-Management] SET  MULTI_USER 
+GO
+ALTER DATABASE [Restaurant-Management] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Restaurant-Management] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Restaurant-Management] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Restaurant-Management] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [Restaurant-Management] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [Restaurant-Management] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Restaurant-Management', N'ON'
+GO
+ALTER DATABASE [Restaurant-Management] SET QUERY_STORE = OFF
+GO
+USE [Restaurant-Management]
+GO
+/****** Object:  Table [dbo].[Categories]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categories](
+	[CategoryID] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryName] [varchar](50) NOT NULL,
+	[Details] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Categories] PRIMARY KEY CLUSTERED 
+(
+	[CategoryID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[History]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[History](
+	[IdHistory] [int] IDENTITY(1,1) NOT NULL,
+	[IdUser] [int] NOT NULL,
+	[Date] [date] NOT NULL,
+	[TotalPrice] [money] NOT NULL,
+ CONSTRAINT [PK_History] PRIMARY KEY CLUSTERED 
+(
+	[IdHistory] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Products]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Products](
+	[ProductID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductCategoryID] [int] NOT NULL,
+	[ProductName] [varchar](50) NOT NULL,
+	[Price] [money] NOT NULL,
+	[Ingredients] [varchar](100) NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[ProductID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RegistrationCodes]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RegistrationCodes](
+	[IdRegistration] [int] IDENTITY(1,1) NOT NULL,
+	[Code] [varchar](50) NOT NULL,
+	[ExpirationDate] [date] NOT NULL,
+	[UserName] [varchar](50) NOT NULL,
+	[CreatedBy] [int] NOT NULL,
+ CONSTRAINT [PK_RegistrationCodes] PRIMARY KEY CLUSTERED 
+(
+	[IdRegistration] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[RoleID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[RoleID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Sells]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Sells](
+	[IdSell] [int] IDENTITY(1,1) NOT NULL,
+	[IdHistory] [int] NOT NULL,
+	[IdProduct] [int] NOT NULL,
+ CONSTRAINT [PK_Sells] PRIMARY KEY CLUSTERED 
+(
+	[IdSell] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 11/16/2021 6:24:58 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[UserID] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](50) NOT NULL,
+	[Password] [varchar](50) NOT NULL,
+	[Phone] [varchar](10) NOT NULL,
+	[Email] [varchar](50) NULL,
+	[RoleID] [int] NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[History] ADD  CONSTRAINT [DF_History_TotalPrice]  DEFAULT ((0)) FOR [TotalPrice]
+GO
+ALTER TABLE [dbo].[History]  WITH CHECK ADD  CONSTRAINT [FK_History_Users] FOREIGN KEY([IdUser])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[History] CHECK CONSTRAINT [FK_History_Users]
+GO
+ALTER TABLE [dbo].[Products]  WITH CHECK ADD  CONSTRAINT [FK_Products_Categories] FOREIGN KEY([ProductCategoryID])
+REFERENCES [dbo].[Categories] ([CategoryID])
+GO
+ALTER TABLE [dbo].[Products] CHECK CONSTRAINT [FK_Products_Categories]
+GO
+ALTER TABLE [dbo].[RegistrationCodes]  WITH CHECK ADD  CONSTRAINT [FK_RegistrationCodes_Users] FOREIGN KEY([CreatedBy])
+REFERENCES [dbo].[Users] ([UserID])
+GO
+ALTER TABLE [dbo].[RegistrationCodes] CHECK CONSTRAINT [FK_RegistrationCodes_Users]
+GO
+ALTER TABLE [dbo].[Sells]  WITH CHECK ADD  CONSTRAINT [FK_Sells_History] FOREIGN KEY([IdHistory])
+REFERENCES [dbo].[History] ([IdHistory])
+GO
+ALTER TABLE [dbo].[Sells] CHECK CONSTRAINT [FK_Sells_History]
+GO
+ALTER TABLE [dbo].[Sells]  WITH CHECK ADD  CONSTRAINT [FK_Sells_Products] FOREIGN KEY([IdProduct])
+REFERENCES [dbo].[Products] ([ProductID])
+GO
+ALTER TABLE [dbo].[Sells] CHECK CONSTRAINT [FK_Sells_Products]
+GO
+ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [FK_Users_Roles] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[Roles] ([RoleID])
+GO
+ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK_Users_Roles]
+GO
+USE [master]
+GO
+ALTER DATABASE [Restaurant-Management] SET  READ_WRITE 
+GO
