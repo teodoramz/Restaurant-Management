@@ -20,11 +20,9 @@ namespace Restaurant_Management
     /// </summary>
     public partial class EmployeesWindow : Window
     {
-        private String loggedUser;
-        public EmployeesWindow(String username)
+        public EmployeesWindow()
         {
             InitializeComponent();
-            this.loggedUser = username;
         }
 
          private void Button_Click(object sender, RoutedEventArgs e)
