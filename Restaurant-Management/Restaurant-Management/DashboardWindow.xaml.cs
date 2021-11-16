@@ -26,7 +26,7 @@ namespace Restaurant_Management
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void categoriesTextButton_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,20 @@ namespace Restaurant_Management
 
         private void employessTextButton_Click(object sender, RoutedEventArgs e)
         {
+            EmployeesWindow ew = new EmployeesWindow();
+            ew.Show();
+            this.Hide();
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
 
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
+            this.Hide();
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Management"
         mc:Ignorable="d"
-        Title="Restaurant-Management"  BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
+        Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
     <Grid Background="Purple">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="233*"/>
@@ -16,8 +16,8 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="27*"/>
             </Grid.RowDefinitions>
-            <Label Content="Dashboard" Foreground="Purple" HorizontalAlignment="Center" Margin="0,61,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="60" FontWeight="Bold" Grid.RowSpan="2">
-                
+            <Label Content="Dashboard" Foreground="Purple" HorizontalAlignment="Center" Margin="0,55,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="60" FontWeight="Bold" Grid.RowSpan="2">
+
             </Label>
             <Button Content="X" BorderThickness="0" Foreground="White" HorizontalAlignment="Left" Margin="1206,0,0,0" VerticalAlignment="Top" Height="75" Width="78" Click="Button_Click" FontFamily="Times New Roman" FontWeight="Bold">
                 <Button.Style>
@@ -43,11 +43,138 @@
 
 
         </Grid>
-        <Button  x:Name="employessTextButton" Content="Employees" HorizontalAlignment="Left" Margin="930,508,0,0" VerticalAlignment="Top" Height="81" Width="178" Click="employessTextButton_Click"/>
-        <Button x:Name="historyTextButton" Content="History" HorizontalAlignment="Left" Margin="152,512,0,0" VerticalAlignment="Top" Height="77" Width="179" RenderTransformOrigin="0.704,0.597" Click="historyTextButton_Click"/>
-        <Button x:Name="categoriesTextButton" Content="Categories" HorizontalAlignment="Left" Margin="898,244,0,0" VerticalAlignment="Top" Height="76" Width="210" Click="categoriesTextButton_Click" />
-        <Button x:Name="productsTextButton" Content="Products" HorizontalAlignment="Left" Margin="170,243,0,0" VerticalAlignment="Top" Height="77" Width="179" RenderTransformOrigin="0.536,-1.766" Click="productsTextButton_Click"/>
-        <Button x:Name="registration_codesTextButton" Content="Registration Codes" HorizontalAlignment="Left" Margin="452,360,0,0" VerticalAlignment="Top" Height="78" Width="376" Click="registration_codesTextButton_Click"/>
+        <Button  x:Name="employessTextButton" Content="Employees" FontFamily="Times New Roman" FontWeight="Bold" Foreground="Purple" HorizontalAlignment="Left" Margin="896,512,0,0" VerticalAlignment="Top" Height="81" Width="241" Click="employessTextButton_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="historyTextButton" Content="History" FontFamily="Times New Roman" FontWeight="Bold" Foreground="Purple" HorizontalAlignment="Left" Margin="117,512,0,0" VerticalAlignment="Top" Height="77" Width="249" RenderTransformOrigin="0.704,0.597" Click="historyTextButton_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="categoriesTextButton" FontFamily="Times New Roman" FontWeight="Bold" Foreground="Purple" Content="Categories" HorizontalAlignment="Left" Margin="898,243,0,0" VerticalAlignment="Top" Height="77" Width="239" Click="categoriesTextButton_Click" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="productsTextButton" Content="Products" FontFamily="Times New Roman" FontWeight="Bold" Foreground="Purple" HorizontalAlignment="Left" Margin="117,243,0,0" VerticalAlignment="Top" Height="77" Width="249" RenderTransformOrigin="0.536,-1.766" Click="productsTextButton_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="registration_codesTextButton" FontFamily="Times New Roman" FontWeight="Bold" Foreground="Purple" Content="Registration Codes" HorizontalAlignment="Left" Margin="452,360,0,0" VerticalAlignment="Top" Height="99" Width="376" Click="registration_codesTextButton_Click">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="logoutButton" Content="Logout" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="10,665,0,0" VerticalAlignment="Top" Height="45" Width="121" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" RenderTransformOrigin="0.027,0.495" Click="logoutButton_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 
 </Window>

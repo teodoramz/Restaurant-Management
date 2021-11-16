@@ -82,9 +82,17 @@ namespace Restaurant_Management
             {
                 if (resultat.Read()) // if there is a return of sql command : login
                 {
-                    EmployeesWindow ew = new EmployeesWindow();
-                    ew.Show();
-                    this.Hide();
+                    var role = resultat.GetInt32(resultat.GetOrdinal("RoleID"));
+                    if (role == 1)
+                    {
+                       // admin page
+                    }
+                    if (role == 2)
+                    {
+                        ProductsWindow ew = new ProductsWindow();
+                        ew.Show();
+                        this.Hide();
+                    }
                 }
                 else // if no return, then error
                 {
@@ -102,6 +110,13 @@ namespace Restaurant_Management
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterWindow rw = new RegisterWindow();
+            rw.Show();
+            this.Hide();
         }
     }
 }

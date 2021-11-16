@@ -8,7 +8,7 @@
        Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
     <Grid>
         <Ellipse Fill="Purple" HorizontalAlignment="Left" Height="1008" Margin="-372,0,0,0" Stroke="#FF610606" VerticalAlignment="Center" Width="656"/>
-        <Button x:Name="RegisterButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Register" HorizontalAlignment="Left" Margin="640,560,0,0" VerticalAlignment="Top" Width="208" RenderTransformOrigin="1.539,0.739" Height="68" Click="RegisterButton_Click">
+        <Button x:Name="RegisterButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Register" HorizontalAlignment="Left" Margin="640,560,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="1.539,0.739" Height="82" Click="RegisterButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -50,7 +50,9 @@
                 </Style>
             </Button.Style>
         </Button>
-        <TextBox x:Name="usernameTextBox" PreviewTextInput="usernameTextBox_PreviewTextInput" Background="WhiteSmoke" MaxLength="17" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,162,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <Label Content="Username"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="523,156,0,0" VerticalAlignment="Top" Width="178" Height="42" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+        </Label>
+        <TextBox x:Name="usernameTextBox" Background="WhiteSmoke" MaxLength="17" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,162,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -65,8 +67,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="UserName"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="493,156,0,0" VerticalAlignment="Top" Width="178" Height="42" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-        </Label>
+        <Label Content="Password"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="521,225,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="passTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,225,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -82,8 +83,8 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Password"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="493,225,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="phoneTextBox"  Background="WhiteSmoke" MaxLength="15" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,360,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <Label Content="Confirm Password"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="485,293,0,0" VerticalAlignment="Top" Width="234" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="confPassTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,293,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -98,7 +99,23 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Phone"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="485,361,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="0.435,0.512"/>
+        <Label Content="Phone"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="517,361,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="0.435,0.512"/>
+        <TextBox x:Name="phoneTextBox"  PreviewTextInput="phoneTextBox_PreviewTextInput" Background="WhiteSmoke" MaxLength="10" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,360,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.BorderBrush>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="1,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="White" Offset="0.9"/>
+                    <GradientStop Color="Purple" Offset="1"/>
+                    <GradientStop Color="Purple" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <Label Content="Email"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="521,427,0,0" VerticalAlignment="Top" Width="177" Height="42" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="emailTextBox"  Background="WhiteSmoke" MaxLength="20" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,427,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -114,27 +131,10 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Email"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="493,427,0,0" VerticalAlignment="Top" Width="177" Height="42" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Content="Create your account" Foreground="Purple" FontWeight="Bold" FontFamily="Times New Roman" FontSize="45" HorizontalAlignment="Left" Margin="493,29,0,0" VerticalAlignment="Top">
         </Label>
-        <Label Content="Verification Code"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="454,492,0,0" VerticalAlignment="Top" Width="239" Height="46" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Verification Code"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="488,492,0,0" VerticalAlignment="Top" Width="239" Height="46" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBox x:Name="verification_codeTextBox"  Background="WhiteSmoke" MaxLength="20" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,500,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="3"/>
-                </Style>
-            </TextBox.Resources>
-            <TextBox.BorderBrush>
-                <LinearGradientBrush EndPoint="1,1" StartPoint="1,0">
-                    <GradientStop Color="White" Offset="0"/>
-                    <GradientStop Color="White" Offset="0.9"/>
-                    <GradientStop Color="Purple" Offset="1"/>
-                    <GradientStop Color="Purple" Offset="1"/>
-                </LinearGradientBrush>
-            </TextBox.BorderBrush>
-        </TextBox>
-        <Label Content="Password Again"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="485,293,0,0" VerticalAlignment="Top" Width="186" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="pass_againTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,293,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>

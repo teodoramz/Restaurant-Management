@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,9 +22,27 @@ namespace Restaurant_Management
     /// </summary>
     public partial class CategoriesWindow : Window
     {
+
+        static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
+        SqlConnection connection = new SqlConnection(connectionString);
+        DataSet DS = new DataSet();
+        SqlDataAdapter DA = new SqlDataAdapter();
+
         public CategoriesWindow()
         {
             InitializeComponent();
+
+            SqlCommand selectCMD = new SqlCommand(string.Format
+             ("SELECT * FROM Categories"), connection);
+
+            DA.SelectCommand = selectCMD;
+
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "Categories");
+            dataTableChosed.ItemsSource = DS.Tables["Categories"].DefaultView;
+
+            connection.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

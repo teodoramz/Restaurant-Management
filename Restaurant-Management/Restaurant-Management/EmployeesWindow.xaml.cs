@@ -20,9 +20,12 @@ namespace Restaurant_Management
     /// </summary>
     public partial class EmployeesWindow : Window
     {
+        private String loggedUsername;
+
         public EmployeesWindow()
         {
             InitializeComponent();
+           // this.loggedUsername = username;
         }
 
          private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,36 +59,17 @@ namespace Restaurant_Management
 
         }
 
-        private void employersButton_Click(object sender, RoutedEventArgs e)
-        {
-            // clear la textboxuri / comboboxuri sau ce mai punem aici
-            // in rest DO NOTHING
-        }
-
-        private void productsButton_Click(object sender, RoutedEventArgs e)
-        {
-            ProductsWindow pw = new ProductsWindow();
-            pw.Show();
-            this.Hide();
-        }
-
-        private void categoriesButton_Click(object sender, RoutedEventArgs e)
-        {
-            CategoriesWindow cw = new CategoriesWindow();
-            cw.Show();
-            this.Hide();
-        }
-
-        private void historyButton_Click(object sender, RoutedEventArgs e)
-        {
-            HistoryWindow hw = new HistoryWindow();
-            hw.Show();
-            this.Hide();
-        }
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow lw = new LoginWindow();
             lw.Show();
+            this.Hide();
+        }
+
+        private void dashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
             this.Hide();
         }
     }

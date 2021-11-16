@@ -7,93 +7,8 @@
         mc:Ignorable="d"
        Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
     <Grid>
-        <Ellipse Fill="Purple" HorizontalAlignment="Left" Height="1008" Margin="-372,0,0,0" Stroke="#FF610606" VerticalAlignment="Center" Width="656"/>
-        <Button x:Name="employersButton" Content="Employers" BorderThickness="0" Foreground="White" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="220" FontFamily="Times New Roman" FontWeight="Bold" Click="employersButton_Click">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Purple"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border CornerRadius="30" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFEB13F5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-
-        <Button x:Name="categoriesButton" BorderThickness="0" Foreground="White" FontFamily="Times New Roman" FontWeight="Bold" Content="Categories" HorizontalAlignment="Left" Margin="10,395,0,0" VerticalAlignment="Top" Width="220" Click="categoriesButton_Click">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Purple"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border CornerRadius="30" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFEB13F5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <Button x:Name="productsButton" BorderThickness="0" Foreground="White" FontFamily="Times New Roman" FontWeight="Bold" Content="Products" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="220" Click="productsButton_Click">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Purple"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border CornerRadius="30" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFEB13F5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <Button x:Name="historyButton" BorderThickness="0" Foreground="White" FontFamily="Times New Roman" FontWeight="Bold" Content="History" HorizontalAlignment="Left" Margin="10,515,0,0" VerticalAlignment="Top" Width="220" Click="historyButton_Click">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Purple"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border CornerRadius="30" Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFEB13F5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <Button x:Name="logoutButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Logout" HorizontalAlignment="Left" Margin="37,621,0,0" VerticalAlignment="Top" Width="152" Click="logoutButton_Click">
+        <Ellipse Fill="Purple" HorizontalAlignment="Left" Height="1008" Margin="-372,0,0,0" Stroke="#FF610606" VerticalAlignment="Center" Width="600"/>
+        <Button x:Name="logoutButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Logout" HorizontalAlignment="Left" Margin="10,618,0,0" VerticalAlignment="Top" Width="152" Click="logoutButton_Click" RenderTransformOrigin="0.264,-1.59">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -135,7 +50,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <TextBox x:Name="idTextBox" PreviewTextInput="idTextBox_PreviewTextInput" Background="WhiteSmoke" MaxLength="17" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="330,209,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <TextBox x:Name="idTextBox" PreviewTextInput="idTextBox_PreviewTextInput" Background="WhiteSmoke" MaxLength="17" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="285,209,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -151,9 +66,9 @@
             </TextBox.BorderBrush>
         </TextBox>
         <DataGrid x:Name="dataTableChosed" Background="Purple" Margin="598,126,0,0"/>
-        <Label Content="ID"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,176,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+        <Label Content="ID"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="292,176,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
         </Label>
-        <TextBox x:Name="nameTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="330,289,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <TextBox x:Name="nameTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,289,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -168,8 +83,8 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Name"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,257,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="phoneTextBox"  Background="WhiteSmoke" MaxLength="15" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="330,369,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <Label Content="Name"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="298,248,0,0" VerticalAlignment="Top" Width="178" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="phoneTextBox"  Background="WhiteSmoke" MaxLength="15" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,375,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -184,8 +99,9 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Phone"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,334,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="positionTextBox"  Background="WhiteSmoke" MaxLength="20" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="330,448,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <Label Content="Phone"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="292,337,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="0.14,0.546"/>
+        <Label Content="Email"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="292,408,0,0" VerticalAlignment="Top" Width="177" Height="40" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" RenderTransformOrigin="0.14,0.546"/>
+        <TextBox x:Name="emailTextBox"  Background="WhiteSmoke" MaxLength="15" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,443,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -200,8 +116,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Position"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,412,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="addButton" Content="ADD" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="289,507,0,0" VerticalAlignment="Top" Height="45" Width="79" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="addButton_Click">
+        <Button x:Name="addButton" Content="ADD" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="229,500,0,0" VerticalAlignment="Top" Height="45" Width="79" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="addButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -213,7 +128,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="editButton" Content="EDIT" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="383,507,0,0" VerticalAlignment="Top" Height="45" Width="79" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="editButton_Click">
+        <Button x:Name="editButton" Content="EDIT" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="332,500,0,0" VerticalAlignment="Top" Height="45" Width="78" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="editButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -225,7 +140,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="deleteButton" Content="DELETE" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="477,507,0,0" VerticalAlignment="Top" Height="45" Width="112" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="deleteButton_Click">
+        <Button x:Name="deleteButton" Content="DELETE" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="429,500,0,0" VerticalAlignment="Top" Height="45" Width="112" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="deleteButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -239,5 +154,38 @@
         </Button>
         <Label Content="MANAGE EMPLOYERS" Foreground="Purple" FontWeight="Bold" FontFamily="Times New Roman" FontSize="45" HorizontalAlignment="Left" Margin="493,29,0,0" VerticalAlignment="Top">
         </Label>
+        <Button x:Name="promoteToButton" Content="Promote to admin" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="276,577,0,0" VerticalAlignment="Top" Height="64" Width="203" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="addButton_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFEB13F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button x:Name="dashboardButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Dashboard" HorizontalAlignment="Left" Margin="0,318,0,0" VerticalAlignment="Top" Width="218" RenderTransformOrigin="0.264,-1.59" Height="57" Click="dashboardButton_Click">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border CornerRadius="30" Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="NavajoWhite"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
     </Grid>
 </Window>

@@ -129,7 +129,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <DataGrid x:Name="dataTableChosed" Background="Purple" Margin="598,126,0,0"/>
+        <DataGrid x:Name="dataTableChosed" Background="Purple" Margin="598,126,0,0" FontFamily="Times New Roman" FontSize="25"/>
         <Label Content="ID"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,236,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
         </Label>
         <TextBox x:Name="nameTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="330,357,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
