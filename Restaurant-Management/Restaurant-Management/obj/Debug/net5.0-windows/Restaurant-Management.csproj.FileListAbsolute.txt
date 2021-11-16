@@ -36,3 +36,7 @@ C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Man
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\DashboardWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\RegisterWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\DashboardWindow.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\RegisterWindow.baml
