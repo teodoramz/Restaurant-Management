@@ -33,15 +33,21 @@ namespace Restaurant_Management
             Application.Current.Shutdown();
         }
 
-        private void idTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void idSellTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^1-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void addButton_Click(object sender, RoutedEventArgs e)
+        private void productIDTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-
+            Regex regex = new Regex("[^1-9][0-9]*");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void quantityTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^1-9][0-9]*");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
@@ -54,12 +60,6 @@ namespace Restaurant_Management
 
         }
 
-        private void employersButton_Click(object sender, RoutedEventArgs e)
-        {
-            EmployeesWindow ew = new EmployeesWindow();
-            ew.Show();
-            this.Hide();
-        }
 
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -85,6 +85,16 @@ namespace Restaurant_Management
             LoginWindow lw = new LoginWindow();
             lw.Show();
             this.Hide();
+        }
+
+        private void createSellButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
