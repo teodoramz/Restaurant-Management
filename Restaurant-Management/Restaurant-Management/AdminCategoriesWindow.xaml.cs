@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,16 +22,64 @@ namespace Restaurant_Management
     /// </summary>
     public partial class AdminCategoriesWindow : Window
     {
+        static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
+        SqlConnection connection = new SqlConnection(connectionString);
+        DataSet DS = new DataSet();
+        SqlDataAdapter DA = new SqlDataAdapter();
 
         int loggedUserID;
-        public AdminCategoriesWindow()
+        public AdminCategoriesWindow(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
+            clearTextBoxes();
+            loadDataGrid();
         }
-
+        void clearTextBoxes()
+        {
+            idTextBox.Clear();
+            categoryNameTextBox.Clear();
+            detailsTextBox.Clear();
+        }
+        public void loadDataGrid()
+        {
+            SqlCommand selectCMD = new SqlCommand(string.Format
+                                                        (@"SELECT CategoryID as ID, CategoryName as Category, Details as Details " +
+                                                            "FROM Categories"), connection);
+            DA.SelectCommand = selectCMD;
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "Categories");
+            dataTableChosed.ItemsSource = DS.Tables["Categories"].DefaultView;
+            connection.Close();
+        }
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+            // var id = idTextBox.Text;  //next update 
+            var categoryName = categoryNameTextBox.Text;
+            var details = detailsTextBox.Text;
 
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Categories(CategoryName, Details) Values(@catName, @details)";
+            cmd.Parameters.AddWithValue("@catName", categoryName);
+            cmd.Parameters.AddWithValue("@details", details);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de adaugat categorii! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +109,40 @@ namespace Restaurant_Management
         {
             Regex regex = new Regex("[^1-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void editButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var id = idTextBox.Text;  //next update 
+            var categoryName = categoryNameTextBox.Text;
+            var details = detailsTextBox.Text;
+
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE Categories
+                                     SET CategoryName = @catName, 
+                                            Details = @details
+                                       WHERE CategoryID = @catID";
+            cmd.Parameters.AddWithValue("@catName", categoryName);
+            cmd.Parameters.AddWithValue("@details", details);
+            cmd.Parameters.AddWithValue("@catID", id);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat categorii! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
     }
 }
