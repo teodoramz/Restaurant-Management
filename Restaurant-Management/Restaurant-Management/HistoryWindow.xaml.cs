@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -19,9 +21,51 @@ namespace Restaurant_Management
     /// </summary>
     public partial class HistoryWindow : Window
     {
-        public HistoryWindow()
+        static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
+        SqlConnection connection = new SqlConnection(connectionString);
+        DataSet DS = new DataSet();
+        SqlDataAdapter DA = new SqlDataAdapter();
+        int loggedUserID;
+        public HistoryWindow(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
+            //            SqlCommand selectCMD = new SqlCommand(string.Format
+            //             (@"with Produse as
+            //(
+            //	SELECT Categories.CategoryName as Categorie, 
+            //           Products.ProductName  as Produs, Products.Price 
+            //           FROM Products 
+            //           INNER JOIN Categories 
+            //           ON Products.ProductCategoryID = Categories.CategoryID
+            //)
+            //select * from Produse"), connection);
+            loadDataGrid();
+
+        }
+        public void loadDataGrid()
+        {
+            SqlCommand selectCMD = new SqlCommand(string.Format
+                                                        (@" WITH loggedUserSells AS
+                                                            (
+                                                              SELECT  History.IdHistory as ID, 
+                                                                        Sells.IdProduct as [Product ID],  
+                                                                            Sells.Quantity as Quantity
+                                                                FROM Sells
+                                                               INNER JOIN History
+                                                               ON History.IdHistory = Sells.IdHistory
+                                                               WHERE History.IdUser = @userID
+                                                             )
+                                                            SELECT *FROM loggedUserSells
+                                                            "), connection);
+            selectCMD.Parameters.AddWithValue("@userID", loggedUserID);
+
+            DA.SelectCommand = selectCMD;
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "loggedUserSells");
+            dataTableChosed.ItemsSource = DS.Tables["loggedUserSells"].DefaultView;
+            connection.Close();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -63,14 +107,14 @@ namespace Restaurant_Management
 
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {
-            ProductsWindow pw = new ProductsWindow();
+            ProductsWindow pw = new ProductsWindow(loggedUserID);
             pw.Show();
             this.Hide();
         }
 
         private void categoriesButton_Click(object sender, RoutedEventArgs e)
         {
-            CategoriesWindow cw = new CategoriesWindow();
+            CategoriesWindow cw = new CategoriesWindow(loggedUserID);
             cw.Show();
             this.Hide();
         }

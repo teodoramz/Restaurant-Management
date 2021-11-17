@@ -27,11 +27,13 @@ namespace Restaurant_Management
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
+        int loggedUserID;
 
         //********************************
         public LoginWindow()
         {
             InitializeComponent();
+            this.loggedUserID = 0;
             clearTextBoxes();
         }
 
@@ -83,13 +85,14 @@ namespace Restaurant_Management
                 if (resultat.Read()) // if there is a return of sql command : login
                 {
                     var role = resultat.GetInt32(resultat.GetOrdinal("RoleID"));
+                    loggedUserID = resultat.GetInt32(resultat.GetOrdinal("UserID"));
                     if (role == 1)
                     {
                        // admin page
                     }
                     if (role == 2)
                     {
-                        ProductsWindow ew = new ProductsWindow();
+                        ProductsWindow ew = new ProductsWindow(loggedUserID);
                         ew.Show();
                         this.Hide();
                     }

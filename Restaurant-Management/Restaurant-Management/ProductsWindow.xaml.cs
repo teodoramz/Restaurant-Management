@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,9 +22,15 @@ namespace Restaurant_Management
     /// </summary>
     public partial class ProductsWindow : Window
     {
-        public ProductsWindow()
+        static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
+        SqlConnection connection = new SqlConnection(connectionString);
+        DataSet DS = new DataSet();
+        SqlDataAdapter DA = new SqlDataAdapter();
+        int loggedUserID;
+        public ProductsWindow(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -64,14 +72,14 @@ namespace Restaurant_Management
 
         private void categoriesButton_Click(object sender, RoutedEventArgs e)
         {
-            CategoriesWindow cw = new CategoriesWindow();
+            CategoriesWindow cw = new CategoriesWindow(loggedUserID);
             cw.Show();
             this.Hide();
         }
 
         private void historyButton_Click(object sender, RoutedEventArgs e)
         {
-            HistoryWindow hw = new HistoryWindow();
+            HistoryWindow hw = new HistoryWindow(loggedUserID);
             hw.Show();
             this.Hide();
         }

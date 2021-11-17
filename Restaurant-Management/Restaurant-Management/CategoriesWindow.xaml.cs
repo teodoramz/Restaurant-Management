@@ -27,24 +27,39 @@ namespace Restaurant_Management
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
+    
+        int loggedUserID;
 
-        public CategoriesWindow()
+        public CategoriesWindow(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
 
+            //            SqlCommand selectCMD = new SqlCommand(string.Format
+            //             (@"with Produse as
+            //(
+            //	SELECT Categories.CategoryName as Categorie, 
+            //           Products.ProductName  as Produs, Products.Price 
+            //           FROM Products 
+            //           INNER JOIN Categories 
+            //           ON Products.ProductCategoryID = Categories.CategoryID
+            //)
+            //select * from Produse"), connection);
+            loadDataGrid();
+        }
+
+        public void loadDataGrid()
+        {
             SqlCommand selectCMD = new SqlCommand(string.Format
-             ("SELECT * FROM Categories"), connection);
-
+                                                        (@"SELECT CategoryID as ID, CategoryName as Category, Details as Details " +
+                                                            "FROM Categories"), connection);
             DA.SelectCommand = selectCMD;
-
             connection.Open();
             DS.Clear();
             DA.Fill(DS, "Categories");
             dataTableChosed.ItemsSource = DS.Tables["Categories"].DefaultView;
-
             connection.Close();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -78,21 +93,21 @@ namespace Restaurant_Management
 
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {
-            ProductsWindow pw = new ProductsWindow();
+            ProductsWindow pw = new ProductsWindow(loggedUserID);
             pw.Show();
             this.Hide();
         }
 
         private void categoriesButton_Click(object sender, RoutedEventArgs e)
         {
-            CategoriesWindow cw = new CategoriesWindow();
+            CategoriesWindow cw = new CategoriesWindow(loggedUserID);
             cw.Show();
             this.Hide();
         }
 
         private void historyButton_Click(object sender, RoutedEventArgs e)
         {
-            HistoryWindow hw = new HistoryWindow();
+            HistoryWindow hw = new HistoryWindow(loggedUserID);
             hw.Show();
             this.Hide();
         }
