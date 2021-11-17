@@ -28,11 +28,19 @@ namespace Restaurant_Management
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
         int loggedUserID;
-        public AdminRegistrationCodes()
+        private static Random random = new Random();
+        public AdminRegistrationCodes(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
+            clearTextBoxes();
+            loadDataGrid();
         }
-
+        public void clearTextBoxes()
+        {
+            idTextBox.Clear();
+            usernameTextBox.Clear();
+        }
         public void loadDataGrid()
         {
             SqlCommand selectCMD = new SqlCommand(string.Format
@@ -76,12 +84,90 @@ namespace Restaurant_Management
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            var id = idTextBox.Text;  
+            var username = usernameTextBox.Text;
+            DateTime date = DateTime.Now;
+            date.AddDays(7);
+            String code = generateCode(username);
+
+
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE RegistrationCodes
+                                     SET UserName = @user, 
+                                            ExpirationDate = @date
+                                       WHERE IdRegistration = @idCodes";
+            cmd.Parameters.AddWithValue("@user", username);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@idCodes", id);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat codurile de inregistrare! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
+        }
+        public static char cipher(char ch, int key)
+        {
+            if (!char.IsLetter(ch))
+            {
+
+                return ch;
+            }
+
+            char d = char.IsUpper(ch) ? 'A' : 'a';
+            return (char)((((ch + key) - d) % 26) + d);
+
 
         }
+        String generateCode(String username)
+        {
+            String output = String.Empty;
 
+            foreach (char ch in username)
+                output += cipher(ch, 17);
+
+            const String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            output += new String(Enumerable.Repeat(chars, 10)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+
+            return output;
+        }
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
+            var id = idTextBox.Text;
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"DELETE FROM RegistrationCodes
+                                       WHERE IdRegistration = @idCodes";
+
+            cmd.Parameters.AddWithValue("@idCodes", id);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de sters codes! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -97,10 +183,36 @@ namespace Restaurant_Management
             dw.Show();
             this.Hide();
         }
-
         private void generateCodeButton_Click(object sender, RoutedEventArgs e)
         {
+            DateTime date = DateTime.Now;
+            date.AddDays(7);
+            String username = usernameTextBox.Text;
+            String code=generateCode(username);
 
+            connection.Open();
+
+            //mai trebuie facuta verificarea pe codul generat
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO RegistrationCodes(Code, [ExpirationDate], [UserName], [CreatedBy]) Values(@code, @expDate, @user, @userID)";
+            cmd.Parameters.AddWithValue("@user", username);
+            cmd.Parameters.AddWithValue("@code", code);
+            cmd.Parameters.AddWithValue("@expDate", date);
+            cmd.Parameters.AddWithValue("@userID", this.loggedUserID);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de adaugat cod! " + error.Message );
+                connection.Close();
+                return;
+            }
+            // MECANISM TRATARE ERORI
+            connection.Close();
         }
     }
 }

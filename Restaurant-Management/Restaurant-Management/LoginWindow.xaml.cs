@@ -36,6 +36,13 @@ namespace Restaurant_Management
             this.loggedUserID = 0;
             clearTextBoxes();
         }
+        public LoginWindow(String username)
+        {
+            InitializeComponent();
+            this.loggedUserID = 0;
+            usernameTextBox.Text = username;
+            clearTextBoxes();
+        }
 
         //clear all the text boxes presented in the login window
         public void clearTextBoxes()

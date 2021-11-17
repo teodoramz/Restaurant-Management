@@ -18,33 +18,20 @@ using System.Windows.Shapes;
 namespace Restaurant_Management
 {
     /// <summary>
-    /// Interaction logic for CategoriesWindow.xaml
+    /// Interaction logic for AdminCategoriesWindow.xaml
     /// </summary>
-    public partial class CategoriesWindow : Window
+    public partial class AdminCategoriesWindow : Window
     {
-
         static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
-    
-        int loggedUserID;
 
-        public CategoriesWindow(int userID)
+        int loggedUserID;
+        public AdminCategoriesWindow(int userID)
         {
             InitializeComponent();
             this.loggedUserID = userID;
-
-            //            SqlCommand selectCMD = new SqlCommand(string.Format
-            //             (@"with Produse as
-            //(
-            //	SELECT Categories.CategoryName as Categorie, 
-            //           Products.ProductName  as Produs, Products.Price 
-            //           FROM Products 
-            //           INNER JOIN Categories 
-            //           ON Products.ProductCategoryID = Categories.CategoryID
-            //)
-            //select * from Produse"), connection);
             clearTextBoxes();
             loadDataGrid();
         }
@@ -66,28 +53,12 @@ namespace Restaurant_Management
             dataTableChosed.ItemsSource = DS.Tables["Categories"].DefaultView;
             connection.Close();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void idTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^1-9][0-9]*");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-           // var id = idTextBox.Text;  //next update 
+            // var id = idTextBox.Text;  //next update 
             var categoryName = categoryNameTextBox.Text;
             var details = detailsTextBox.Text;
-            
+
             connection.Open();
 
             var cmd = connection.CreateCommand();
@@ -111,8 +82,38 @@ namespace Restaurant_Management
             loadDataGrid();
         }
 
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
+            this.Hide();
+        }
+
+        private void dashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow(loggedUserID);
+            dw.Show();
+            this.Hide();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void idTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^1-9][0-9]*");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+
             var id = idTextBox.Text;  //next update 
             var categoryName = categoryNameTextBox.Text;
             var details = detailsTextBox.Text;
@@ -142,35 +143,6 @@ namespace Restaurant_Management
             }
             connection.Close();
             loadDataGrid();
-        }
-
-
-        private void productsButton_Click(object sender, RoutedEventArgs e)
-        {
-            ProductsWindow pw = new ProductsWindow(loggedUserID);
-            pw.Show();
-            this.Hide();
-        }
-
-        private void categoriesButton_Click(object sender, RoutedEventArgs e)
-        {
-            CategoriesWindow cw = new CategoriesWindow(loggedUserID);
-            cw.Show();
-            this.Hide();
-        }
-
-        private void historyButton_Click(object sender, RoutedEventArgs e)
-        {
-            HistoryWindow hw = new HistoryWindow(loggedUserID);
-            hw.Show();
-            this.Hide();
-        }
-
-        private void logoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoginWindow lw = new LoginWindow();
-            lw.Show();
-            this.Hide();
         }
     }
 }
