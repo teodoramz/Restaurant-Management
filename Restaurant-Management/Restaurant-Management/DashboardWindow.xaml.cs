@@ -19,9 +19,11 @@ namespace Restaurant_Management
     /// </summary>
     public partial class DashboardWindow : Window
     {
-        public DashboardWindow()
+        int loggedUserID;
+        public DashboardWindow(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,7 +53,7 @@ namespace Restaurant_Management
 
         private void employessTextButton_Click(object sender, RoutedEventArgs e)
         {
-            EmployeesWindow ew = new EmployeesWindow();
+            EmployeesWindow ew = new EmployeesWindow(loggedUserID);
             ew.Show();
             this.Hide();
         }

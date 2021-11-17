@@ -88,7 +88,10 @@ namespace Restaurant_Management
                     loggedUserID = resultat.GetInt32(resultat.GetOrdinal("UserID"));
                     if (role == 1)
                     {
-                       // admin page
+                        // admin page
+                        DashboardWindow dw = new DashboardWindow(loggedUserID);
+                        dw.Show();
+                        this.Hide();
                     }
                     if (role == 2)
                     {

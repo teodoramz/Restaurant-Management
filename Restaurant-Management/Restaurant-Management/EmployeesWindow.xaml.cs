@@ -20,12 +20,12 @@ namespace Restaurant_Management
     /// </summary>
     public partial class EmployeesWindow : Window
     {
-        private String loggedUsername;
+        int loggedUserID;
 
-        public EmployeesWindow()
+        public EmployeesWindow(int userID)
         {
             InitializeComponent();
-           // this.loggedUsername = username;
+            this.loggedUserID = userID;
         }
 
          private void Button_Click(object sender, RoutedEventArgs e)
@@ -68,7 +68,7 @@ namespace Restaurant_Management
 
         private void dashboardButton_Click(object sender, RoutedEventArgs e)
         {
-            DashboardWindow dw = new DashboardWindow();
+            DashboardWindow dw = new DashboardWindow(loggedUserID);
             dw.Show();
             this.Hide();
         }
