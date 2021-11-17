@@ -33,9 +33,14 @@ namespace Restaurant_Management
         {
             InitializeComponent();
             this.loggedUserID = userID;
+            clearTextBoxes();
             loadDataGrid();
         }
-
+        public void clearTextBoxes()
+        {
+            idTextBox.Clear();
+            usernameTextBox.Clear();
+        }
         public void loadDataGrid()
         {
             SqlCommand selectCMD = new SqlCommand(string.Format
@@ -79,26 +84,38 @@ namespace Restaurant_Management
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            var id = idTextBox.Text;  
+            var username = usernameTextBox.Text;
+            DateTime date = DateTime.Now;
+            date.AddDays(7);
+            String code = generateCode(username);
 
-        }
 
-        private void deleteButton_Click(object sender, RoutedEventArgs e)
-        {
+            connection.Open();
 
-        }
-
-        private void logoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoginWindow lw = new LoginWindow();
-            lw.Show();
-            this.Hide();
-        }
-
-        private void dashboardButton_Click(object sender, RoutedEventArgs e)
-        {
-            DashboardWindow dw = new DashboardWindow(loggedUserID);
-            dw.Show();
-            this.Hide();
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE RegistrationCodes
+                                     SET UserName = @user, 
+                                            ExpirationDate = @date
+                                       WHERE IdRegistration = @idCodes";
+            cmd.Parameters.AddWithValue("@user", username);
+            cmd.Parameters.AddWithValue("@date", date);
+            cmd.Parameters.AddWithValue("@idCodes", id);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat codurile de inregistrare! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
         public static char cipher(char ch, int key)
         {
@@ -125,6 +142,46 @@ namespace Restaurant_Management
                 .Select(s => s[random.Next(s.Length)]).ToArray());
 
             return output;
+        }
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var id = idTextBox.Text;
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"DELETE FROM RegistrationCodes
+                                       WHERE IdRegistration = @idCodes";
+
+            cmd.Parameters.AddWithValue("@idCodes", id);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de sters codes! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
+        }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
+            this.Hide();
+        }
+
+        private void dashboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow(loggedUserID);
+            dw.Show();
+            this.Hide();
         }
         private void generateCodeButton_Click(object sender, RoutedEventArgs e)
         {

@@ -45,9 +45,15 @@ namespace Restaurant_Management
             //           ON Products.ProductCategoryID = Categories.CategoryID
             //)
             //select * from Produse"), connection);
+            clearTextBoxes();
             loadDataGrid();
         }
-
+        void clearTextBoxes()
+        {
+            idTextBox.Clear();
+            categoryNameTextBox.Clear();
+            detailsTextBox.Clear();
+        }
         public void loadDataGrid()
         {
             SqlCommand selectCMD = new SqlCommand(string.Format
@@ -78,18 +84,66 @@ namespace Restaurant_Management
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
+           // var id = idTextBox.Text;  //next update 
+            var categoryName = categoryNameTextBox.Text;
+            var details = detailsTextBox.Text;
+            
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Categories(CategoryName, Details) Values(@catName, @details)";
+            cmd.Parameters.AddWithValue("@catName", categoryName);
+            cmd.Parameters.AddWithValue("@details", details);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de adaugat categorii! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            var id = idTextBox.Text;  //next update 
+            var categoryName = categoryNameTextBox.Text;
+            var details = detailsTextBox.Text;
 
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE Categories
+                                     SET CategoryName = @catName, 
+                                            Details = @details
+                                       WHERE CategoryID = @catID";
+            cmd.Parameters.AddWithValue("@catName", categoryName);
+            cmd.Parameters.AddWithValue("@details", details);
+            cmd.Parameters.AddWithValue("@catID", id);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat categorii! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
-        private void deleteButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {

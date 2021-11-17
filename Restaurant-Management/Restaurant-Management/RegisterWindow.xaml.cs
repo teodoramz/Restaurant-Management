@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -67,6 +68,19 @@ namespace Restaurant_Management
 
             return state;
         }
+        public bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             var username = usernameTextBox.Text;
@@ -79,6 +93,8 @@ namespace Restaurant_Management
             if (confPass != password)
             {
                 MessageBox.Show("Password not matching");
+                passTextBox.Clear();
+                confPassTextBox.Clear();
                 return;
             }
             if(phone.Length != 10)
@@ -86,10 +102,14 @@ namespace Restaurant_Management
                 MessageBox.Show("Wrong phone number format!");
                 return;
             }
+            if(!IsValid(email))
+            {
+                MessageBox.Show("Wrong email format!");
+                return;
+            }
             if (username == "" || password =="" || phone =="" || email == "") // mail nu ar fi obligatoriu
             {
                 MessageBox.Show("Fill all the gaps");
-                clearTextBoxes();
                 return;
             }
 
@@ -119,9 +139,10 @@ namespace Restaurant_Management
                 }
                 // MECANISM TRATARE ERORI
                 connection.Close();
-                LoginWindow lw = new LoginWindow();
+                LoginWindow lw = new LoginWindow(username);
                 lw.Show();
                 this.Hide();
+                MessageBox.Show("Registred succesfully! ");
             }
             else
             {
@@ -131,6 +152,12 @@ namespace Restaurant_Management
 
         }
 
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
+            this.Hide();
+        }
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

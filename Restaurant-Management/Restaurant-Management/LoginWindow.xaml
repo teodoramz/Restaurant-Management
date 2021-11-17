@@ -90,7 +90,6 @@
                     </LinearGradientBrush>
                 </TextBox.BorderBrush>
             </TextBox>
-            <Label Foreground="Purple" Content="Password:" HorizontalAlignment="Left" Margin="254,266,0,0" VerticalAlignment="Top" Width="195" FontFamily="Times New Roman" FontWeight="Bold"/>
             <PasswordBox Background="Transparent" BorderThickness="0"  x:Name="passwordBox" Margin="460,263,111,256" RenderTransformOrigin="0.503,1.661" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="36">
                 <PasswordBox.RenderTransform>
                     <TransformGroup>
@@ -101,6 +100,7 @@
                     </TransformGroup>
                 </PasswordBox.RenderTransform>
             </PasswordBox>
+            <Label Foreground="Purple" Content="Password:" HorizontalAlignment="Left" Margin="254,266,0,0" VerticalAlignment="Top" Width="195" FontFamily="Times New Roman" FontWeight="Bold"/>
             <Button x:Name="loginButton" BorderThickness="0" Foreground="White" FontFamily="Times New Roman" FontWeight="Bold" Content="Login" HorizontalAlignment="Left" Margin="528,362,0,0" VerticalAlignment="Top" Width="224" Click="loginButton_Click">
                 <Button.Effect>
                     <DropShadowEffect/>
