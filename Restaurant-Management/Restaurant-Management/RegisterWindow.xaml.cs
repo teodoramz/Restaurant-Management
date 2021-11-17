@@ -42,6 +42,31 @@ namespace Restaurant_Management
             verification_codeTextBox.Clear();
         }
 
+        bool check_code(String code, String username)
+        {
+            var verCode = code;
+            var userName = username;
+            bool state = false;
+            connection.Open();
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select * from RegistrationCodes where UserName = @user and Code = @code";
+            cmd.Parameters.AddWithValue("@code", verCode);
+            cmd.Parameters.AddWithValue("@user", userName);
+
+            //exec sql command
+            using (var resultat = cmd.ExecuteReader())
+            {
+                if (resultat.Read()) // if there is a return of sql command : login
+                {
+                    state = true;
+                }
+            }
+  
+            connection.Close();
+
+            return state;
+        }
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             var username = usernameTextBox.Text;
@@ -56,6 +81,11 @@ namespace Restaurant_Management
                 MessageBox.Show("Password not matching");
                 return;
             }
+            if(phone.Length != 10)
+            {
+                MessageBox.Show("Wrong phone number format!");
+                return;
+            }
             if (username == "" || password =="" || phone =="" || email == "") // mail nu ar fi obligatoriu
             {
                 MessageBox.Show("Fill all the gaps");
@@ -63,35 +93,42 @@ namespace Restaurant_Management
                 return;
             }
 
-
-            connection.Open();
-
-            //mai trebuie facuta verificarea pe codul generat
-            var cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Insert into Users(Username, Password, Phone, Email, RoleID) Values(@user, @pass, @phone, @email, 2)";
-            cmd.Parameters.AddWithValue("@user", username);
-            cmd.Parameters.AddWithValue("@pass", password);
-            cmd.Parameters.AddWithValue("@email", email);
-            cmd.Parameters.AddWithValue("@phone", phone);
-            // MECANISM TRATARE ERORI
-            try
+            if (check_code(verification_code, username))
             {
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception error)
-            {
-                MessageBox.Show("Imposibil de adaugat utilizator");
+                connection.Open();
+
+                //mai trebuie facuta verificarea pe codul generat
+                var cmd = connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "Insert into Users(Username, Password, Phone, Email, RoleID) Values(@user, @pass, @phone, @email, 2)";
+                cmd.Parameters.AddWithValue("@user", username);
+                cmd.Parameters.AddWithValue("@pass", password);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@phone", phone);
+                // MECANISM TRATARE ERORI
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Imposibil de adaugat utilizator! " + error.Message);
+                    connection.Close();
+                    clearTextBoxes();
+                    return;
+                }
+                // MECANISM TRATARE ERORI
                 connection.Close();
-                clearTextBoxes();
+                LoginWindow lw = new LoginWindow();
+                lw.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Cod de inregistrare invalid pentru username-ul " + username + "!");
                 return;
             }
-            // MECANISM TRATARE ERORI
-            connection.Close();
 
-            LoginWindow lw = new LoginWindow();
-            lw.Show();
-            this.Hide();
         }
 
         private void ExitButtonClick(object sender, RoutedEventArgs e)

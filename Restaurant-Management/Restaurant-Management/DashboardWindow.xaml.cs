@@ -43,7 +43,9 @@ namespace Restaurant_Management
 
         private void registration_codesTextButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminRegistrationCodes arc = new AdminRegistrationCodes(loggedUserID);
+            arc.Show();
+            this.Hide();
         }
 
         private void historyTextButton_Click(object sender, RoutedEventArgs e)

@@ -69,7 +69,7 @@
         </DataGrid>
         <Label Content="ID"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="292,258,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
         </Label>
-        <TextBox x:Name="nameTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,349,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <TextBox x:Name="usernameTextBox"  Background="WhiteSmoke" MaxLength="30" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,349,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -84,7 +84,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Name"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="298,316,0,0" VerticalAlignment="Top" Width="178" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Username"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="298,316,0,0" VerticalAlignment="Top" Width="178" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Button x:Name="editButton" Content="EDIT" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="230,500,0,0" VerticalAlignment="Top" Height="45" Width="124" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="editButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
