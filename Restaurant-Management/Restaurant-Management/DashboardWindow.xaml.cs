@@ -33,7 +33,7 @@ namespace Restaurant_Management
 
         private void categoriesTextButton_Click(object sender, RoutedEventArgs e)
         {
-            AdminCategoriesWindow acw = new AdminCategoriesWindow();
+            AdminCategoriesWindow acw = new AdminCategoriesWindow(loggedUserID);
             acw.Show();
             this.Hide();
         }
@@ -54,7 +54,7 @@ namespace Restaurant_Management
 
         private void historyTextButton_Click(object sender, RoutedEventArgs e)
         {
-            AdminHistoryWindow ahw = new AdminHistoryWindow();
+            AdminHistoryWindow ahw = new AdminHistoryWindow(loggedUserID);
             ahw.Show();
             this.Hide();
         }

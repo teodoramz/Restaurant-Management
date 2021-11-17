@@ -102,7 +102,7 @@
             </TextBox.BorderBrush>
         </TextBox>
         <Label Content="Total Price"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,405,0,0" VerticalAlignment="Top" Width="177" Height="42" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Content="MANAGE SELLS" Foreground="Purple" FontWeight="Bold" FontFamily="Times New Roman" FontSize="45" HorizontalAlignment="Left" Margin="483,29,0,0" VerticalAlignment="Top">
+        <Label Content="MANAGE HISTORY" Foreground="Purple" FontWeight="Bold" FontFamily="Times New Roman" FontSize="45" HorizontalAlignment="Left" Margin="483,29,0,0" VerticalAlignment="Top">
         </Label>
         <Button x:Name="addButton" Content="ADD" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="280,536,0,0" VerticalAlignment="Top" Height="45" Width="79" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="addButton_Click">
             <Button.Style>

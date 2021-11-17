@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -20,13 +22,49 @@ namespace Restaurant_Management
     /// </summary>
     public partial class AdminHistoryWindow : Window
     {
+        static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
+        SqlConnection connection = new SqlConnection(connectionString);
+        DataSet DS = new DataSet();
+        SqlDataAdapter DA = new SqlDataAdapter();
+
         int loggedUserID;
 
-        public AdminHistoryWindow()
+        public AdminHistoryWindow(int userID)
         {
             InitializeComponent();
+            this.loggedUserID = userID;
         }
+        public void loadComboBox()
+        {
+            List<string> str = new List<string>();
+            try
+            {
+                SqlCommand selectCMD = new SqlCommand("SELECT Username  FROM Users WHERE RoleID = 2", connection);
+                connection.Open();
 
+                SqlDataReader reader = selectCMD.ExecuteReader();
+               
+                int i = 0;
+                while (reader.Read())
+                {
+                    str.Add(reader.GetValue(i).ToString());
+                    i++;
+                }
+                reader.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+                for(int j = 0; j< str.Count(); j++)
+                {
+                    Console.WriteLine(str[j]);
+                }
+            }
+        }
         private void dashboardButton_Click(object sender, RoutedEventArgs e)
         {
             DashboardWindow dw = new DashboardWindow(loggedUserID);
@@ -63,7 +101,7 @@ namespace Restaurant_Management
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-
+            loadComboBox();
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
