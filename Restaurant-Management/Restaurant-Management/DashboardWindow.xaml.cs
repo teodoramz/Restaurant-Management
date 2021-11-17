@@ -33,12 +33,16 @@ namespace Restaurant_Management
 
         private void categoriesTextButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminCategoriesWindow acw = new AdminCategoriesWindow();
+            acw.Show();
+            this.Hide();
         }
 
         private void productsTextButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminProductsWindow apw = new AdminProductsWindow();
+            apw.Show();
+            this.Hide();
         }
 
         private void registration_codesTextButton_Click(object sender, RoutedEventArgs e)
@@ -50,7 +54,9 @@ namespace Restaurant_Management
 
         private void historyTextButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AdminHistoryWindow ahw = new AdminHistoryWindow();
+            ahw.Show();
+            this.Hide();
         }
 
         private void employessTextButton_Click(object sender, RoutedEventArgs e)
