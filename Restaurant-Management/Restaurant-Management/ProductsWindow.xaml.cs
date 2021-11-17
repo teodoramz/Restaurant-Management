@@ -31,6 +31,30 @@ namespace Restaurant_Management
         {
             InitializeComponent();
             this.loggedUserID = userID;
+            loadDataGrid();
+        }
+        public void loadDataGrid()
+        {
+            SqlCommand selectCMD = new SqlCommand(string.Format
+                                                        (@" WITH CTEProducts AS
+                                                            (
+                                                              SELECT ProductID as ID
+                                                              ,ProductCategoryID as ProductCategoryID
+                                                              ,ProductName as Name
+                                                              ,Price as Price
+                                                              ,Ingredients as Ingredients
+                                                               FROM Products
+                                                             )
+                                                            SELECT *FROM CTEProducts
+                                                            "), connection);
+           // selectCMD.Parameters.AddWithValue("@userID", lo);
+
+            DA.SelectCommand = selectCMD;
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "CTEProducts");
+            dataTableChosed.ItemsSource = DS.Tables["CTEProducts"].DefaultView;
+            connection.Close();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
