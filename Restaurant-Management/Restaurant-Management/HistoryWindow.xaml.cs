@@ -55,19 +55,19 @@ namespace Restaurant_Management
         {
             SqlCommand selectCMD = new SqlCommand(string.Format
                                                         (@" WITH loggedUserSells AS
-                                                            (
-                                                              SELECT    Sells.IdSell as ID
-                                                                        History.IdHistory as ID Sell, 
-                                                                        Sells.IdProduct as [Product ID],  
-                                                                            Sells.Quantity as Quantity
-                                                                FROM Sells
-                                                               INNER JOIN History
-                                                               ON History.IdHistory = Sells.IdHistory
-                                                               WHERE History.IdUser = @userID
-                                                             )
-                                                            SELECT *FROM loggedUserSells
+(
+	                                                        SELECT Sells.IdSell as ID,
+                                                                    History.IdHistory as [ID Sell], 
+                                                                        Sells.IdProduct as [Product ID], 
+                                                                               Sells.Quantity as Quantity
+	                                                        from Sells
+	                                                        inner join History
+	                                                        on History.IdHistory = Sells.IdHistory
+	                                                        where History.IdUser = @userID
+                                                            )
+                                                            select * from loggedUserSells
                                                             "), connection);
-            selectCMD.Parameters.AddWithValue("@userID", loggedUserID);
+            selectCMD.Parameters.AddWithValue("@userID", this.loggedUserID);
 
             DA.SelectCommand = selectCMD;
             connection.Open();
