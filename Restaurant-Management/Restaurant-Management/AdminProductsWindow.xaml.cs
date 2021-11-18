@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,10 +23,39 @@ namespace Restaurant_Management
     public partial class AdminProductsWindow : Window
     {
         int loggedUserID;
+        static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
+        SqlConnection connection = new SqlConnection(connectionString);
+        DataSet DS = new DataSet();
+        SqlDataAdapter DA = new SqlDataAdapter();
+        
 
         public AdminProductsWindow()
         {
             InitializeComponent();
+            loadDataGrid();
+        }
+        public void loadDataGrid()
+        {
+            SqlCommand selectCMD = new SqlCommand(string.Format
+                                                        (@" WITH CTEProducts AS
+                                                            (
+                                                              SELECT ProductID as ID
+                                                              ,ProductCategoryID as ProductCategoryID
+                                                              ,ProductName as Name
+                                                              ,Price as Price
+                                                              ,Ingredients as Ingredients
+                                                               FROM Products
+                                                             )
+                                                            SELECT *FROM CTEProducts
+                                                            "), connection);
+            // selectCMD.Parameters.AddWithValue("@userID", lo);
+
+            DA.SelectCommand = selectCMD;
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "CTEProducts");
+            dataTableChosed.ItemsSource = DS.Tables["CTEProducts"].DefaultView;
+            connection.Close();
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -71,5 +102,6 @@ namespace Restaurant_Management
             dw.Show();
             this.Hide();
         }
+
     }
 }

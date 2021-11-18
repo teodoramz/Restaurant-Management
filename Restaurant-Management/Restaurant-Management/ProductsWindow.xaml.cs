@@ -71,20 +71,114 @@ namespace Restaurant_Management
             Regex regex = new Regex("[^1-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
+        void clearTextBoxes()
+        {
+            idTextBox.Clear();
+            productNameTextBox.Clear();
+            categoryIDTextBox.Clear();
+            priceTextBox.Clear();
+            ingredientsTextBox.Clear();
+        }
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
 
+            
+            
+            var productname = productNameTextBox.Text;
+            var catid = categoryIDTextBox.Text;
+            var price = priceTextBox.Text;
+            var ingredients = ingredientsTextBox.Text;
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "INSERT INTO Products(ProductCategoryID,ProductName,Price, Ingredients) Values(@catid,@productname,@price,@ingredients)";
+            
+            cmd.Parameters.AddWithValue("@productname", productname);
+            cmd.Parameters.AddWithValue("@catid", catid);
+            cmd.Parameters.AddWithValue("@price", price);
+            cmd.Parameters.AddWithValue("@ingredients", ingredients);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de adaugat produsul! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            var productID = idTextBox.Text;
+            var productname = productNameTextBox.Text;
+            var catid = categoryIDTextBox.Text;
+            var price = priceTextBox.Text;
+            var ingredients = ingredientsTextBox.Text;
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE Products 
+                                SET ProductCategoryID=@catid,
+                                    ProductName=@productname,
+                                    Price=@price, 
+                                    Ingredients=@ingredients 
+                                    WHERE ProductID=@productID";
+            cmd.Parameters.AddWithValue("@productID",productID);
+            cmd.Parameters.AddWithValue("@productname", productname);
+            cmd.Parameters.AddWithValue("@catid", catid);
+            cmd.Parameters.AddWithValue("@price", price);
+            cmd.Parameters.AddWithValue("@ingredients", ingredients);
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat produsul! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
+            var productID = idTextBox.Text;
+            
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"DELETE FROM Products 
+                                WHERE ProductID=@productID";
+            cmd.Parameters.AddWithValue("@productID", productID);
+           
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat produsul! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
 
