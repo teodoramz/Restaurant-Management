@@ -56,6 +56,7 @@ namespace Restaurant_Management
             SqlCommand selectCMD = new SqlCommand(string.Format
                                                         (@" WITH loggedUserSells AS
 (
+<<<<<<< Updated upstream
 	                                                        SELECT Sells.IdSell as ID,
                                                                     History.IdHistory as [ID Sell], 
                                                                         Sells.IdProduct as [Product ID], 
@@ -64,6 +65,16 @@ namespace Restaurant_Management
 	                                                        inner join History
 	                                                        on History.IdHistory = Sells.IdHistory
 	                                                        where History.IdUser = @userID
+=======
+                                                            SELECT Sells.IdSell as ID,
+                                                                    History.IdHistory as [ID Sell], 
+                                                                        Sells.IdProduct as [Product ID], 
+                                                                               Sells.Quantity as Quantity
+                                                            from Sells
+                                                            inner join History
+                                                            on History.IdHistory = Sells.IdHistory
+                                                            where History.IdUser = @userID
+>>>>>>> Stashed changes
                                                             )
                                                             select * from loggedUserSells
                                                             "), connection);

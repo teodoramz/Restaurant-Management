@@ -117,7 +117,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Button x:Name="addButton" Content="ADD" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="229,500,0,0" VerticalAlignment="Top" Height="45" Width="79" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="addButton_Click">
+        <Button x:Name="editButton" Content="EDIT" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="278,500,0,0" VerticalAlignment="Top" Height="45" Width="102" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="editButton_Click" RenderTransformOrigin="-0.216,1.244">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -129,19 +129,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Button x:Name="editButton" Content="EDIT" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="332,500,0,0" VerticalAlignment="Top" Height="45" Width="78" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="editButton_Click">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="WhiteSmoke"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFEB13F5"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
-        <Button x:Name="deleteButton" Content="DELETE" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="429,500,0,0" VerticalAlignment="Top" Height="45" Width="112" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="deleteButton_Click">
+        <Button x:Name="deleteButton" Content="DELETE" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" HorizontalAlignment="Left" Margin="411,500,0,0" VerticalAlignment="Top" Height="45" Width="112" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="deleteButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
@@ -155,7 +143,7 @@
         </Button>
         <Label Content="MANAGE EMPLOYERS" Foreground="Purple" FontWeight="Bold" FontFamily="Times New Roman" FontSize="45" HorizontalAlignment="Left" Margin="493,29,0,0" VerticalAlignment="Top">
         </Label>
-        <Button x:Name="promoteToButton" Content="Promote to admin" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="276,577,0,0" VerticalAlignment="Top" Height="64" Width="203" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" Click="addButton_Click">
+        <Button x:Name="promoteToButton" Content="Promote to admin" HorizontalAlignment="Left" BorderBrush="Purple" BorderThickness="2" Foreground="Purple" Margin="298,577,0,0" VerticalAlignment="Top" Height="64" Width="203" FontSize="25" FontFamily="Times New Roman" FontWeight="Bold" RenderTransformOrigin="0.591,0.578" Click="promoteToButton_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>

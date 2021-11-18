@@ -73,20 +73,81 @@ namespace Restaurant_Management
             Regex regex = new Regex("[^1-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
-
-        private void addButton_Click(object sender, RoutedEventArgs e)
+        void clearTextBoxes()
         {
-
+            //curata campurile
         }
+
+       
 
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            var id = idTextBox.Text;
+            var name = nameTextBox.Text;
+            var email = emailTextBox.Text;
+            var phone = phoneTextBox.Text;
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE Users 
+                                SET Username=@name,
+                                    Email=@email,
+                                    Phone=@phone 
+                                    WHERE UserID=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@phone", phone);
+            cmd.Parameters.AddWithValue("@email", email);
+
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
 
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
+            var id = idTextBox.Text;
+            var name = nameTextBox.Text;
+            var email = emailTextBox.Text;
+            var phone = phoneTextBox.Text;
+            connection.Open();
 
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"DELETE FROM Users
+                                WHERE UserID=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@phone", phone);
+            cmd.Parameters.AddWithValue("@email", email);
+
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de sters userul! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)
@@ -101,6 +162,36 @@ namespace Restaurant_Management
             DashboardWindow dw = new DashboardWindow(loggedUserID);
             dw.Show();
             this.Hide();
+        }
+
+        private void promoteToButton_Click(object sender, RoutedEventArgs e)
+        {
+            var id = idTextBox.Text;
+           
+            connection.Open();
+
+            var cmd = connection.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = @"UPDATE Users
+                                SET RoleID=1 
+                                    WHERE UserID=@id"; ;
+            cmd.Parameters.AddWithValue("@id", id);
+           
+
+            // MECANISM TRATARE ERORI
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Imposibil de editat! " + error.Message);
+                connection.Close();
+                clearTextBoxes();
+                return;
+            }
+            connection.Close();
+            loadDataGrid();
         }
     }
 }
