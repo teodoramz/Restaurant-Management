@@ -130,7 +130,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <DataGrid x:Name="dataTableChosed" IsReadOnly="True" BorderBrush="Purple" BorderThickness="3" Background="WhiteSmoke" Foreground="Purple" Margin="598,126,23,10" FontFamily="Times New Roman" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch">
+        <DataGrid x:Name="dataTableChosed" IsReadOnly="True" RowBackground="WhiteSmoke" BorderBrush="Purple" BorderThickness="3" Background="WhiteSmoke" Foreground="Purple" Margin="598,126,23,10" FontFamily="Times New Roman" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch">
         </DataGrid>
         <Label Content="ID"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="337,236,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
         </Label>

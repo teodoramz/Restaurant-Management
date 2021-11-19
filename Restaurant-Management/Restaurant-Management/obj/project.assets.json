@@ -454,24 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\default.DESKTOP-JSGMONP\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Teoo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\default.DESKTOP-JSGMONP\\Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+      "projectUniqueName": "C:\\Users\\Teoo\\Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
       "projectName": "Restaurant-Management",
-      "projectPath": "C:\\Users\\default.DESKTOP-JSGMONP\\Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
-      "packagesPath": "C:\\Users\\default.DESKTOP-JSGMONP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\default.DESKTOP-JSGMONP\\Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management\\obj\\",
+      "projectPath": "C:\\Users\\Teoo\\Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management.csproj",
+      "packagesPath": "C:\\Users\\Teoo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Teoo\\Desktop\\Restaurant-Management\\Restaurant-Management\\Restaurant-Management\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\default.DESKTOP-JSGMONP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Teoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -520,7 +515,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

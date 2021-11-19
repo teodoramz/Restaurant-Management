@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\default.DESKTOP-JSGMONP\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\
 Restaurant_Management
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\default.DESKTOP-JSGMONP\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\App.xaml
-91689719010
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\App.xaml
+11994115627
 
-13-2084424467
-194-1813071409
-AdminRegistrationCodes.xaml;CategoriesWindow.xaml;DashboardWindow.xaml;EmployeesWindow.xaml;HistoryWindow.xaml;LoginWindow.xaml;ProductsWindow.xaml;RegisterWindow.xaml;Window1.xaml;
+151627314779
+1941747090063
+AdminCategoriesWindow.xaml;AdminHistoryWindow.xaml;AdminProductsWindow.xaml;AdminRegistrationCodes.xaml;CategoriesWindow.xaml;DashboardWindow.xaml;EmployeesWindow.xaml;HistoryWindow.xaml;LoginWindow.xaml;ProductsWindow.xaml;RegisterWindow.xaml;
 
-False
+True
 

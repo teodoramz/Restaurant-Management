@@ -124,7 +124,7 @@ namespace Restaurant_Management
         {
             Application.Current.Shutdown();
         }
-
+        //register page
         private void registerButton_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow rw = new RegisterWindow();

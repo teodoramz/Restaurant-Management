@@ -18,8 +18,6 @@ C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Man
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\ref\Restaurant-Management.dll
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Restaurant-Management.pdb
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Restaurant-Management.genruntimeconfig.cache
-C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Window1.g.cs
-C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Window1.baml
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\LoginWindow.g.cs
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\LoginWindow.baml
 C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\EmployeesWindow.g.cs
@@ -81,3 +79,15 @@ C:\Users\default.DESKTOP-JSGMONP\Desktop\Restaurant-Management\Restaurant-Manage
 C:\Users\default.DESKTOP-JSGMONP\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\ref\Restaurant-Management.dll
 C:\Users\default.DESKTOP-JSGMONP\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Restaurant-Management.pdb
 C:\Users\default.DESKTOP-JSGMONP\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\Restaurant-Management.genruntimeconfig.cache
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminCategoriesWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminHistoryWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminProductsWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminRegistrationCodes.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\DashboardWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\RegisterWindow.g.cs
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminCategoriesWindow.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminHistoryWindow.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminProductsWindow.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\AdminRegistrationCodes.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\DashboardWindow.baml
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\net5.0-windows\RegisterWindow.baml

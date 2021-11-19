@@ -42,7 +42,7 @@ namespace Restaurant_Management
             emailTextBox.Clear();
             verification_codeTextBox.Clear();
         }
-
+        // check if there is a verification code  created in database
         bool check_code(String code, String username)
         {
             var verCode = code;
@@ -68,6 +68,8 @@ namespace Restaurant_Management
 
             return state;
         }
+
+        //check email format
         public bool IsValid(string emailaddress)
         {
             try
@@ -81,14 +83,18 @@ namespace Restaurant_Management
                 return false;
             }
         }
+
+        //register procedure
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
+            //variables
             var username = usernameTextBox.Text;
             var password = passTextBox.Text;
             var confPass = confPassTextBox.Text;
             var phone = phoneTextBox.Text;
             var email = emailTextBox.Text;
             var verification_code = verification_codeTextBox.Text;
+           
             //checking if confirmation password is ok
             if (confPass != password)
             {
@@ -97,27 +103,30 @@ namespace Restaurant_Management
                 confPassTextBox.Clear();
                 return;
             }
+            //check lenght of phone number
             if(phone.Length != 10)
             {
                 MessageBox.Show("Wrong phone number format!");
                 return;
             }
+            //check email validity
             if(!IsValid(email))
             {
                 MessageBox.Show("Wrong email format!");
                 return;
             }
+
+            //check if boxes are empty
             if (username == "" || password =="" || phone =="" || email == "") // mail nu ar fi obligatoriu
             {
                 MessageBox.Show("Fill all the gaps");
                 return;
             }
 
-            if (check_code(verification_code, username))
+            if (check_code(verification_code, username)) //if verification code is ok
             {
                 connection.Open();
 
-                //mai trebuie facuta verificarea pe codul generat
                 var cmd = connection.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "Insert into Users(Username, Password, Phone, Email, RoleID) Values(@user, @pass, @phone, @email, 2)";
@@ -151,24 +160,25 @@ namespace Restaurant_Management
             }
 
         }
-
+        //log out
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow lw = new LoginWindow();
             lw.Show();
             this.Hide();
         }
+        //exit
         private void ExitButtonClick(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        //phone format condition
         private void phoneTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
-
+        //closing in cascade
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.Shutdown();

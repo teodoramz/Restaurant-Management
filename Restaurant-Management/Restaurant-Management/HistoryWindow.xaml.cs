@@ -21,51 +21,36 @@ namespace Restaurant_Management
     /// </summary>
     public partial class HistoryWindow : Window
     {
+        //database variables
         static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
         int loggedUserID;
         int currSellID = 0;
+
+        //page constructor
         public HistoryWindow(int userID)
         {
             InitializeComponent();
             this.loggedUserID = userID;
-            //            SqlCommand selectCMD = new SqlCommand(string.Format
-            //             (@"with Produse as
-            //(
-            //	SELECT Categories.CategoryName as Categorie, 
-            //           Products.ProductName  as Produs, Products.Price 
-            //           FROM Products 
-            //           INNER JOIN Categories 
-            //           ON Products.ProductCategoryID = Categories.CategoryID
-            //)
-            //select * from Produse"), connection);
             clearTextBoxes();
             loadDataGrid();
 
         }
+        //clear boxes
         public void clearTextBoxes()
         {
             idSellTextBox.Clear();
             productIDTextBox.Clear();
             quantityTextBox.Clear();
         }
+        //load datagrid
         public void loadDataGrid()
         {
             SqlCommand selectCMD = new SqlCommand(string.Format
                                                         (@" WITH loggedUserSells AS
-(
-<<<<<<< Updated upstream
-	                                                        SELECT Sells.IdSell as ID,
-                                                                    History.IdHistory as [ID Sell], 
-                                                                        Sells.IdProduct as [Product ID], 
-                                                                               Sells.Quantity as Quantity
-	                                                        from Sells
-	                                                        inner join History
-	                                                        on History.IdHistory = Sells.IdHistory
-	                                                        where History.IdUser = @userID
-=======
+                                                           (
                                                             SELECT Sells.IdSell as ID,
                                                                     History.IdHistory as [ID Sell], 
                                                                         Sells.IdProduct as [Product ID], 
@@ -74,7 +59,6 @@ namespace Restaurant_Management
                                                             inner join History
                                                             on History.IdHistory = Sells.IdHistory
                                                             where History.IdUser = @userID
->>>>>>> Stashed changes
                                                             )
                                                             select * from loggedUserSells
                                                             "), connection);
@@ -87,39 +71,48 @@ namespace Restaurant_Management
             dataTableChosed.ItemsSource = DS.Tables["loggedUserSells"].DefaultView;
             connection.Close();
         }
+        //close button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        //close windows in cascade
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.Shutdown();
         }
-
+        //only numbers format
         private void idSellTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^1-9][0-9]*");
+            Regex regex = new Regex("[^0-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
-
+        //only numbers format
         private void productIDTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^1-9][0-9]*");
+            Regex regex = new Regex("[^0-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
+        //only numbers format
         private void quantityTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^1-9][0-9]*");
+            Regex regex = new Regex("[^0-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
-
+        //edit sells procedure
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
+            //functions variables
             var id = idSellTextBox.Text;
             var product = productIDTextBox.Text;
             var quantity = quantityTextBox.Text;
+            if (id == "" || product == "" || quantity =="")     //check if boxes are empty
+            {
+                MessageBox.Show("Please fill all the gaps!");
+                return;
+            }
 
+            //open database
             connection.Open();
 
             var cmd = connection.CreateCommand();
@@ -145,9 +138,14 @@ namespace Restaurant_Management
             }
             connection.Close();
             loadDataGrid();
+            clearTextBoxes();
+            MessageBox.Show("Procedure executed with succes!");
         }
+
+        //if a sell is deleted, do : 
         public void updateHistory2(int idSell)
         {
+            //get data using idSell
             int productID;
             int quantity;
             int currSellID;
@@ -176,7 +174,7 @@ namespace Restaurant_Management
 
             }
 
-
+            //get product dates using product id
             var otherCmd = connection.CreateCommand();
             otherCmd.CommandType = CommandType.Text;
             otherCmd.CommandText = "SELECT * FROM Products WHERE ProductID = @product";
@@ -199,6 +197,8 @@ namespace Restaurant_Management
                 }
 
             }
+
+            //update by (-) operation
             var cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = @"UPDATE History
@@ -219,11 +219,25 @@ namespace Restaurant_Management
             }
             connection.Close();
         }
-
+        //delete procedure
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
+            if(productIDTextBox.Text != "" || quantityTextBox.Text !="") //check if boxes are empty
+            {
+                MessageBox.Show("We only need ID! Please leave the other boxes empty!");
+                productIDTextBox.Clear();
+                quantityTextBox.Clear();
+                return;
+            }
             var id = idSellTextBox.Text;
+            if(id == "")
+            {
+                MessageBox.Show("Please add an id! ");
+                return;
+            }
             updateHistory2(Convert.ToInt32(id));
+            
+            //open database
             connection.Open();
 
             var cmd = connection.CreateCommand();
@@ -246,42 +260,43 @@ namespace Restaurant_Management
             }
             connection.Close();
             loadDataGrid();
+            clearTextBoxes();
+            MessageBox.Show("Procedure executed with succes!");
         }
 
-
+        //products button
         private void productsButton_Click(object sender, RoutedEventArgs e)
         {
             ProductsWindow pw = new ProductsWindow(loggedUserID);
             pw.Show();
             this.Hide();
         }
-
+        //categories button
         private void categoriesButton_Click(object sender, RoutedEventArgs e)
         {
             CategoriesWindow cw = new CategoriesWindow(loggedUserID);
             cw.Show();
             this.Hide();
         }
-
+        //history button
         private void historyButton_Click(object sender, RoutedEventArgs e)
         {
-            // clear la textboxuri / comboboxuri sau ce mai punem aici
-            // in rest DO NOTHING
+            clearTextBoxes();
         }
+        //log out
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow lw = new LoginWindow();
             lw.Show();
             this.Hide();
         }
-
+        //create sell id procedure
         private void createSellButton_Click(object sender, RoutedEventArgs e)
         {
 
             DateTime date = DateTime.Now;
             connection.Open();
 
-            //mai trebuie facuta verificarea pe codul generat
             var cmd = connection.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "INSERT INTO History(IdUser ,Date, TotalPrice) Values(@user, @date, 0)";
@@ -294,7 +309,7 @@ namespace Restaurant_Management
             }
             catch (Exception error)
             {
-                MessageBox.Show("Imposibil de adaugat utilizator! " + error.Message);
+                MessageBox.Show("Imposibil de adaugat istoric vanzare user! " + error.Message);
                 connection.Close();
                 clearTextBoxes();
                 return;
@@ -314,7 +329,7 @@ namespace Restaurant_Management
                 }
                 else // if no return, then error
                 {
-                    MessageBox.Show("Error at creating new sell! Please try again! ");
+                    MessageBox.Show("Error at getting history ID! Please try again! ");
                     clearTextBoxes();
                     connection.Close();
                     return;
@@ -322,7 +337,9 @@ namespace Restaurant_Management
             }
             MessageBox.Show("Sell Procedure Created! ");
             connection.Close();
+            clearTextBoxes();
         }
+        //update history by adding sell
         public void updateHistory(int productID, int quantity)
         {
             connection.Open();
@@ -369,9 +386,10 @@ namespace Restaurant_Management
             }
             connection.Close();
         }
+        //add sell
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
-            if(idSellTextBox.Text != "")
+            if (idSellTextBox.Text != "")   //check if boxes are empty
             {
                 MessageBox.Show("Please leave ID box empty for this procedure! ");
                 idSellTextBox.Clear();
@@ -381,9 +399,21 @@ namespace Restaurant_Management
             {
                 var product = productIDTextBox.Text;
                 var quantity = quantityTextBox.Text;
+                if (product == "" || quantity =="")
+                {
+                    MessageBox.Show("Please fill product ID and quantity!");
+                    return;
+                }    
+                if( Convert.ToInt32(quantity) < 1 )
+                {
+                    MessageBox.Show("Quantity must be greater than 0!");
+                    quantityTextBox.Clear();
+                    return;
+                }
+
+                //open database
                 connection.Open();
 
-                //mai trebuie facuta verificarea pe codul generat
                 var cmd = connection.CreateCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "INSERT INTO Sells(IdHistory , IdProduct, Quantity) Values(@historyID, @productID, @quantity)";
@@ -411,6 +441,8 @@ namespace Restaurant_Management
                 return;
             }
             loadDataGrid();
+            clearTextBoxes();
+            MessageBox.Show("Procedure executed with succes!");
         }
        
     }

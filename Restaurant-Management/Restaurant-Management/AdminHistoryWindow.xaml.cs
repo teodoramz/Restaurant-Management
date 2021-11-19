@@ -22,6 +22,7 @@ namespace Restaurant_Management
     /// </summary>
     public partial class AdminHistoryWindow : Window
     {
+        //database variables
         static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -29,89 +30,84 @@ namespace Restaurant_Management
 
         int loggedUserID;
 
+        //constructor for this page
         public AdminHistoryWindow(int userID)
         {
             InitializeComponent();
             this.loggedUserID = userID;
+            loadDataGrid();
         }
-        public void loadComboBox()
+        // data grid loader
+        public void loadDataGrid()
         {
-            List<string> str = new List<string>();
-            try
-            {
-                SqlCommand selectCMD = new SqlCommand("SELECT Username  FROM Users WHERE RoleID = 2", connection);
-                connection.Open();
-
-                SqlDataReader reader = selectCMD.ExecuteReader();
-               
-                int i = 0;
-                while (reader.Read())
-                {
-                    str.Add(reader.GetValue(i).ToString());
-                    i++;
-                }
-                reader.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                connection.Close();
-                for(int j = 0; j< str.Count(); j++)
-                {
-                    Console.WriteLine(str[j]);
-                }
-            }
+            SqlCommand selectCMD = new SqlCommand(string.Format
+                                                       (@"SELECT IdHistory as ID, IdUser as [ID User], Date as Date, TotalPrice as [Total Sell]" +
+                                                           "FROM History"), connection);
+            DA.SelectCommand = selectCMD;
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "History");
+            dataTableChosed.ItemsSource = DS.Tables["History"].DefaultView;
+            connection.Close();
         }
+        // dashboard button
         private void dashboardButton_Click(object sender, RoutedEventArgs e)
         {
             DashboardWindow dw = new DashboardWindow(loggedUserID);
             dw.Show();
             this.Hide();
         }
-
+        // log out
         private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow lw = new LoginWindow();
             lw.Show();
             this.Hide();
         }
-
+        // exit button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
+        // close window in cascade
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.Shutdown();
         }
+        // accepting only numbers
         private void idUserTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[^1-9][0-9]*");
+            Regex regex = new Regex("[^0-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
-
-        private void totalPriceTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        // search button procedure
+        private void searchButton_Click(object sender, RoutedEventArgs e)
         {
-            Regex regex = new Regex("[^0-9][.0-9]*");
-            e.Handled = regex.IsMatch(e.Text);
+            var userID = idUserTextBox.Text;
+            if (userID == "")               // check if userID is clear
+            {
+                MessageBox.Show("Please fill the ID User! ");
+                return;
+            }
+            //sql command
+            SqlCommand selectCMD = new SqlCommand(string.Format
+                                                      (@"SELECT IdHistory as ID, IdUser as [ID User], Date as Date, TotalPrice as [Total Sell]" +
+                                                          "FROM History WHERE IdUser = @user"), connection);
+            selectCMD.Parameters.AddWithValue("@user", userID);
+            
+            DA.SelectCommand = selectCMD;
+            connection.Open();
+            DS.Clear();
+            DA.Fill(DS, "History");
+            dataTableChosed.ItemsSource = DS.Tables["History"].DefaultView;
+            connection.Close();
+            idUserTextBox.Clear();
         }
-
-        private void addButton_Click(object sender, RoutedEventArgs e)
+        //clear search
+        private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-            loadComboBox();
-        }
-
-        private void editButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void deleteButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            idUserTextBox.Clear();
+            loadDataGrid();
         }
     }
 }

@@ -65,7 +65,7 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <DataGrid x:Name="dataTableChosed" IsReadOnly="True" BorderBrush="Purple" BorderThickness="3" Background="WhiteSmoke" Foreground="Purple" Margin="598,126,23,10" FontFamily="Times New Roman" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch">
+        <DataGrid x:Name="dataTableChosed" IsReadOnly="True" RowBackground="WhiteSmoke" BorderBrush="Purple" BorderThickness="3" Background="WhiteSmoke" Foreground="Purple" Margin="598,126,23,10" FontFamily="Times New Roman" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Stretch">
         </DataGrid>
         <Label Content="ID"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="292,176,0,0" VerticalAlignment="Top" Width="177" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
         </Label>
@@ -84,8 +84,8 @@
                 </LinearGradientBrush>
             </TextBox.BorderBrush>
         </TextBox>
-        <Label Content="Name"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="298,248,0,0" VerticalAlignment="Top" Width="178" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="phoneTextBox"  Background="WhiteSmoke" MaxLength="15" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,375,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <Label Content="Username"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="298,248,0,0" VerticalAlignment="Top" Width="178" Height="41" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="phoneTextBox"  Background="WhiteSmoke"  PreviewTextInput="phoneTextBox_PreviewTextInput" MaxLength="10" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="278,375,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>

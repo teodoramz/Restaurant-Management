@@ -134,7 +134,7 @@
         <Label Content="Create your account" Foreground="Purple" FontWeight="Bold" FontFamily="Times New Roman" FontSize="45" HorizontalAlignment="Left" Margin="493,29,0,0" VerticalAlignment="Top">
         </Label>
         <Label Content="Verification Code"  Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" HorizontalAlignment="Left" Margin="488,492,0,0" VerticalAlignment="Top" Width="239" Height="46" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <TextBox x:Name="verification_codeTextBox"  Background="WhiteSmoke" MaxLength="20" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,500,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
+        <TextBox x:Name="verification_codeTextBox"  Background="WhiteSmoke" MaxLength="50" BorderThickness="3" Height="30"  Width="204" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="749,500,0,0" FontFamily="Times New Roman" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" UndoLimit="200" RenderTransformOrigin="-0.62,-2.98" >
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="3"/>
@@ -159,7 +159,7 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <Button x:Name="logoutButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Logout" HorizontalAlignment="Left" Margin="34,601,0,0" VerticalAlignment="Top" Width="152" Click="logoutButton_Click" RenderTransformOrigin="0.264,-1.59" Height="48">
+        <Button x:Name="logoutButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Back" HorizontalAlignment="Left" Margin="34,601,0,0" VerticalAlignment="Top" Width="152" Click="logoutButton_Click" RenderTransformOrigin="0.264,-1.59" Height="48">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="WhiteSmoke"/>
