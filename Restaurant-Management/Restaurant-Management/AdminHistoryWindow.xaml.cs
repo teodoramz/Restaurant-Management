@@ -22,7 +22,7 @@ namespace Restaurant_Management
     /// </summary>
     public partial class AdminHistoryWindow : Window
     {
-        //database variables
+       //database variables
         static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -94,7 +94,7 @@ namespace Restaurant_Management
                                                       (@"SELECT IdHistory as ID, IdUser as [ID User], Date as Date, TotalPrice as [Total Sell]" +
                                                           "FROM History WHERE IdUser = @user"), connection);
             selectCMD.Parameters.AddWithValue("@user", userID);
-            
+
             DA.SelectCommand = selectCMD;
             connection.Open();
             DS.Clear();

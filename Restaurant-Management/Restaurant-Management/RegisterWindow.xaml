@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Management"
         mc:Ignorable="d"
-       Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
+         Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
     <Grid>
         <Ellipse Fill="Purple" HorizontalAlignment="Left" Height="1008" Margin="-372,0,0,0" Stroke="#FF610606" VerticalAlignment="Center" Width="656"/>
         <Button x:Name="RegisterButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Register" HorizontalAlignment="Left" Margin="640,560,0,0" VerticalAlignment="Top" Width="211" RenderTransformOrigin="1.539,0.739" Height="82" Click="RegisterButton_Click">

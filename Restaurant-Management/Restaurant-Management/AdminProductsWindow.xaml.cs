@@ -84,7 +84,7 @@ namespace Restaurant_Management
                 var catid = categoryIDTextBox.Text;
                 var price = priceTextBox.Text;
                 var ingredients = ingredientsTextBox.Text;
-                if(productname == "" || catid == "" || price == "" || ingredients == "") // check if boxes are empty
+                if (productname == "" || catid == "" || price == "" || ingredients == "") // check if boxes are empty
                 {
                     MessageBox.Show("Please fill all the gaps! ");
                     return;
@@ -235,6 +235,5 @@ namespace Restaurant_Management
             Regex regex = new Regex("[^0-9][0-9]*");
             e.Handled = regex.IsMatch(e.Text);
         }
-
     }
 }

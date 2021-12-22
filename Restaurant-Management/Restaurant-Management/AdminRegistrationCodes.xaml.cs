@@ -29,7 +29,7 @@ namespace Restaurant_Management
         SqlDataAdapter DA = new SqlDataAdapter();
         int loggedUserID;
         private static Random random = new Random();
-        
+
         //page constructor
         public AdminRegistrationCodes(int userID)
         {
@@ -90,9 +90,9 @@ namespace Restaurant_Management
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
             //variables
-            var id = idTextBox.Text;  
+            var id = idTextBox.Text;
             var username = usernameTextBox.Text;
-            if(id == "" || username == "" )     //check if boxes are empty
+            if (id == "" || username == "")     //check if boxes are empty
             {
                 MessageBox.Show("Please fill all the gaps! ");
                 return;
@@ -227,7 +227,7 @@ namespace Restaurant_Management
                 DateTime date = DateTime.Now;
                 date.AddDays(7);
                 String username = usernameTextBox.Text;
-                if(username == "")
+                if (username == "")
                 {
                     MessageBox.Show("Please fill username box! ");
                     return;

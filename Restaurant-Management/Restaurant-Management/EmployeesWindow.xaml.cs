@@ -51,7 +51,7 @@ namespace Restaurant_Management
                                                                FROM Users
                                                              )
                                                             SELECT *FROM Empl"), connection);
-            
+
 
             DA.SelectCommand = selectCMD;
             connection.Open();
@@ -113,12 +113,12 @@ namespace Restaurant_Management
             var email = emailTextBox.Text;
             var phone = phoneTextBox.Text;
 
-            if(id == "" || name == "" || email == "" || phone == "") // check if boxes are empty
+            if (id == "" || name == "" || email == "" || phone == "") // check if boxes are empty
             {
                 MessageBox.Show("Please fill all the gaps!");
                 return;
             }
-            if(!IsValid(email))         //check mail format
+            if (!IsValid(email))         //check mail format
             {
                 MessageBox.Show("Wrong email address format! ");
                 emailTextBox.Clear();
@@ -161,7 +161,7 @@ namespace Restaurant_Management
         //delete employee procedure
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if(nameTextBox.Text != "" || emailTextBox.Text != "" || phoneTextBox.Text !="") //check if boxes are empty
+            if (nameTextBox.Text != "" || emailTextBox.Text != "" || phoneTextBox.Text != "") //check if boxes are empty
             {
                 MessageBox.Show("We need only id! Please leave the others empty!");
                 nameTextBox.Clear();
@@ -170,7 +170,7 @@ namespace Restaurant_Management
                 return;
             }
             var id = idTextBox.Text;
-            if(id == "")
+            if (id == "")
             {
                 MessageBox.Show("Please add an id!");
                 return;
@@ -233,7 +233,7 @@ namespace Restaurant_Management
                 MessageBox.Show("Please add an id!");
                 return;
             }
-            
+
             //open database
             connection.Open();
 
@@ -243,7 +243,7 @@ namespace Restaurant_Management
                                 SET RoleID=1 
                                     WHERE UserID=@id"; ;
             cmd.Parameters.AddWithValue("@id", id);
-           
+
             // MECANISM TRATARE ERORI
             try
             {

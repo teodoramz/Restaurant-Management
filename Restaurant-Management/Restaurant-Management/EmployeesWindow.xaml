@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant_Management"
         mc:Ignorable="d"
-       Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
+         Title="Restaurant-Management" BorderThickness="0px" Height="720" Closing="Window_Closing" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen" FontStretch="Normal" WindowStyle="None"  FontSize="40" ResizeMode="NoResize">
     <Grid>
         <Ellipse Fill="Purple" HorizontalAlignment="Left" Height="1008" Margin="-372,0,0,0" Stroke="#FF610606" VerticalAlignment="Center" Width="600"/>
         <Button x:Name="logoutButton" BorderThickness="0" Foreground="Purple" FontFamily="Times New Roman" FontWeight="Bold" Content="Logout" HorizontalAlignment="Left" Margin="10,618,0,0" VerticalAlignment="Top" Width="152" Click="logoutButton_Click" RenderTransformOrigin="0.264,-1.59">

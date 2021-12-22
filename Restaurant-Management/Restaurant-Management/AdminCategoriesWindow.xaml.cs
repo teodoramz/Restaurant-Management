@@ -64,7 +64,7 @@ namespace Restaurant_Management
             {
                 var categoryName = categoryNameTextBox.Text;
                 var details = detailsTextBox.Text;
-                if(categoryName == "" || details =="")     //check if the boxes are empty
+                if (categoryName == "" || details == "")     //check if the boxes are empty
                 {
                     MessageBox.Show("Please fill all the gaps! ");
                     return;
@@ -136,7 +136,7 @@ namespace Restaurant_Management
         private void editButton_Click(object sender, RoutedEventArgs e)
         {
             //variables
-            var id = idTextBox.Text;  
+            var id = idTextBox.Text;
             var categoryName = categoryNameTextBox.Text;
             var details = detailsTextBox.Text;
             if (categoryName == "" || details == "" || id == "") //check if the boxes are empty

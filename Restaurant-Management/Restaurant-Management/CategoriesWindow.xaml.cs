@@ -27,7 +27,7 @@ namespace Restaurant_Management
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
         SqlDataAdapter DA = new SqlDataAdapter();
-    
+
         int loggedUserID;
 
         //page constructor
@@ -81,7 +81,7 @@ namespace Restaurant_Management
             {
                 var categoryName = categoryNameTextBox.Text;
                 var details = detailsTextBox.Text;
-                if(categoryName == "" || details =="")
+                if (categoryName == "" || details == "")
                 {
                     MessageBox.Show("Please fill all the gaps!");
                     return;
@@ -129,7 +129,7 @@ namespace Restaurant_Management
             var categoryName = categoryNameTextBox.Text;
             var details = detailsTextBox.Text;
 
-            if(id == ""|| categoryName =="" || details =="")    //check if boxes are empty
+            if (id == "" || categoryName == "" || details == "")    //check if boxes are empty
             {
                 MessageBox.Show("Please fill all the gaps!");
                 return;

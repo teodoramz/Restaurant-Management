@@ -107,7 +107,7 @@ namespace Restaurant_Management
                 var ingredients = ingredientsTextBox.Text;
                 if (productname == "" || catid == "" ||
                            price == "" || ingredients == "")
-                       {
+                {
                     MessageBox.Show("Please fill all the gaps!");
                     return;
                 }
@@ -157,7 +157,7 @@ namespace Restaurant_Management
             var price = priceTextBox.Text;
             var ingredients = ingredientsTextBox.Text;
             //check if boxes are empty
-            if (productID == ""||productname == "" || catid == "" ||
+            if (productID == "" || productname == "" || catid == "" ||
                           price == "" || ingredients == "")
             {
                 MessageBox.Show("Please fill all the gaps!");
@@ -175,7 +175,7 @@ namespace Restaurant_Management
                                     Price=@price, 
                                     Ingredients=@ingredients 
                                     WHERE ProductID=@productID";
-            cmd.Parameters.AddWithValue("@productID",productID);
+            cmd.Parameters.AddWithValue("@productID", productID);
             cmd.Parameters.AddWithValue("@productname", productname);
             cmd.Parameters.AddWithValue("@catid", catid);
             cmd.Parameters.AddWithValue("@price", price);
@@ -200,7 +200,7 @@ namespace Restaurant_Management
         //delete procedure
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if(productNameTextBox.Text!="" ||categoryIDTextBox.Text!="" ||priceTextBox.Text!="" || ingredientsTextBox.Text != "")
+            if (productNameTextBox.Text != "" || categoryIDTextBox.Text != "" || priceTextBox.Text != "" || ingredientsTextBox.Text != "")
             {
                 MessageBox.Show("We only need Id!");
                 productNameTextBox.Clear();
@@ -210,7 +210,7 @@ namespace Restaurant_Management
                 return;
             }
             var productID = idTextBox.Text;
-            
+
             //open database
             connection.Open();
 
@@ -219,7 +219,7 @@ namespace Restaurant_Management
             cmd.CommandText = @"DELETE FROM Products 
                                 WHERE ProductID=@productID";
             cmd.Parameters.AddWithValue("@productID", productID);
-           
+
             // MECANISM TRATARE ERORI
             try
             {

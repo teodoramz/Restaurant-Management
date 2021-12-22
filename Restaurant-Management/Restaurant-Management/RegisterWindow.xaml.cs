@@ -22,7 +22,8 @@ namespace Restaurant_Management
     /// Interaction logic for RegisterWindow.xaml
     /// </summary>
     public partial class RegisterWindow : Window
-    {   //database connection variables
+    {
+        //database connection variables
         static String connectionString = "Server=.;Database=Restaurant-Management;Trusted_Connection=true";
         SqlConnection connection = new SqlConnection(connectionString);
         DataSet DS = new DataSet();
@@ -63,7 +64,7 @@ namespace Restaurant_Management
                     state = true;
                 }
             }
-  
+
             connection.Close();
 
             return state;
@@ -94,7 +95,7 @@ namespace Restaurant_Management
             var phone = phoneTextBox.Text;
             var email = emailTextBox.Text;
             var verification_code = verification_codeTextBox.Text;
-           
+
             //checking if confirmation password is ok
             if (confPass != password)
             {
@@ -104,20 +105,20 @@ namespace Restaurant_Management
                 return;
             }
             //check lenght of phone number
-            if(phone.Length != 10)
+            if (phone.Length != 10)
             {
                 MessageBox.Show("Wrong phone number format!");
                 return;
             }
             //check email validity
-            if(!IsValid(email))
+            if (!IsValid(email))
             {
                 MessageBox.Show("Wrong email format!");
                 return;
             }
 
             //check if boxes are empty
-            if (username == "" || password =="" || phone =="" || email == "") // mail nu ar fi obligatoriu
+            if (username == "" || password == "" || phone == "" || email == "") // mail nu ar fi obligatoriu
             {
                 MessageBox.Show("Fill all the gaps");
                 return;

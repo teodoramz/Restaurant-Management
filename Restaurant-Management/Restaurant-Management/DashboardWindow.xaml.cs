@@ -18,10 +18,10 @@ namespace Restaurant_Management
     /// Interaction logic for DashboardWindow.xaml
     /// </summary>
     public partial class DashboardWindow : Window
-    { 
+    {
         //variables
         int loggedUserID;
-        
+
         //page constructor
         public DashboardWindow(int userID)
         {

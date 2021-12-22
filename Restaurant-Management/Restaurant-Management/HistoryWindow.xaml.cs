@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 namespace Restaurant_Management
 {
     /// <summary>
@@ -106,7 +107,7 @@ namespace Restaurant_Management
             var id = idSellTextBox.Text;
             var product = productIDTextBox.Text;
             var quantity = quantityTextBox.Text;
-            if (id == "" || product == "" || quantity =="")     //check if boxes are empty
+            if (id == "" || product == "" || quantity == "")     //check if boxes are empty
             {
                 MessageBox.Show("Please fill all the gaps!");
                 return;
@@ -222,7 +223,7 @@ namespace Restaurant_Management
         //delete procedure
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if(productIDTextBox.Text != "" || quantityTextBox.Text !="") //check if boxes are empty
+            if (productIDTextBox.Text != "" || quantityTextBox.Text != "") //check if boxes are empty
             {
                 MessageBox.Show("We only need ID! Please leave the other boxes empty!");
                 productIDTextBox.Clear();
@@ -230,13 +231,13 @@ namespace Restaurant_Management
                 return;
             }
             var id = idSellTextBox.Text;
-            if(id == "")
+            if (id == "")
             {
                 MessageBox.Show("Please add an id! ");
                 return;
             }
             updateHistory2(Convert.ToInt32(id));
-            
+
             //open database
             connection.Open();
 
@@ -244,7 +245,7 @@ namespace Restaurant_Management
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = @"DELETE FROM Sells
                                        WHERE IdSell = @idSell";
-            
+
             cmd.Parameters.AddWithValue("@idSell", id);
             // MECANISM TRATARE ERORI
             try
@@ -399,12 +400,12 @@ namespace Restaurant_Management
             {
                 var product = productIDTextBox.Text;
                 var quantity = quantityTextBox.Text;
-                if (product == "" || quantity =="")
+                if (product == "" || quantity == "")
                 {
                     MessageBox.Show("Please fill product ID and quantity!");
                     return;
-                }    
-                if( Convert.ToInt32(quantity) < 1 )
+                }
+                if (Convert.ToInt32(quantity) < 1)
                 {
                     MessageBox.Show("Quantity must be greater than 0!");
                     quantityTextBox.Clear();
@@ -444,6 +445,5 @@ namespace Restaurant_Management
             clearTextBoxes();
             MessageBox.Show("Procedure executed with succes!");
         }
-       
     }
 }
