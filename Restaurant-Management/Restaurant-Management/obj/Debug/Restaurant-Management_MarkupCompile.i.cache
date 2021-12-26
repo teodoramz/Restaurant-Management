@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\obj\Debug\
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\obj\Debug\
 Restaurant_Management
 none
 false
 DEBUG;TRACE
-C:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\App.xaml
-11650915000
+C:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\App.xaml
+16-1645138019
 
-16-1044791090
-13-1505183044
-AdminCategoriesWindow.xaml;AdminHistoryWindow.xaml;AdminProductsWindow.xaml;AdminRegistrationCodes.xaml;CategoriesWindow.xaml;DashboardWindow.xaml;EmployeesWindow.xaml;HistoryWindow.xaml;LoginWindow.xaml;ProductsWindow.xaml;RegisterWindow.xaml;
+22-291052574
+141111353196
+Admin\AdminCategoriesWindow.xaml;Admin\AdminHistoryWindow.xaml;Admin\AdminProductsWindow.xaml;Admin\AdminRegistrationCodes.xaml;Employee\CategoriesWindow.xaml;Admin\DashboardWindow.xaml;Admin\EmployeesWindow.xaml;Employee\HistoryWindow.xaml;Procedures\AddProcedures\AddProduct.xaml;Procedures\EditProcedure\EditEmployees.xaml;Procedures\EditProcedure\EditProduct.xaml;Startup\LoginWindow.xaml;Employee\ProductsWindow.xaml;Startup\RegisterWindow.xaml;Procedures\AddProcedures\AddCategory.xaml;Procedures\EditProcedure\EditCategory.xaml;
 
 True
 

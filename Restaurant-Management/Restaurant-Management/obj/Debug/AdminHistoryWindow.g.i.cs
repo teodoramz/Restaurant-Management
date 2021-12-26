@@ -121,6 +121,12 @@ namespace Restaurant_Management {
             case 1:
             
             #line 8 "..\..\AdminHistoryWindow.xaml"
+            ((Restaurant_Management.AdminHistoryWindow)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
+            
+            #line default
+            #line hidden
+            
+            #line 8 "..\..\AdminHistoryWindow.xaml"
             ((Restaurant_Management.AdminHistoryWindow)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.Window_Closing);
             
             #line default

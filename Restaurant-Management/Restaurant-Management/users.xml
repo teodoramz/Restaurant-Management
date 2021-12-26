@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--LINQ To XML Demo-->
+<Users>
+  <User>
+    <Username>test1</Username>
+    <Password>test1</Password>
+    <Email>test1@gmail.com</Email>
+    <Phone>0123456</Phone>
+    <Role>admin</Role>
+  </User>
+<User>
+    <Username>test2</Username>
+    <Password>test2</Password>
+    <Email>test2@gmail.com</Email>
+    <Phone>0123456</Phone>
+    <Role>employee</Role>
+  </User>
+<User>
+    <Username>test3</Username>
+    <Password>test3</Password>
+    <Email>test3@gmail.com</Email>
+    <Phone>01234568</Phone>
+    <Role>employee</Role>
+  </User>
+<User>
+    <Username>test4</Username>
+    <Password>test4</Password>
+    <Email>test4@gmail.com</Email>
+    <Phone>0123456</Phone>
+    <Role>admin</Role>
+  </User>
+</Users>

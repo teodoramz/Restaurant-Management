@@ -41,7 +41,7 @@ namespace Restaurant_Management {
     public partial class LoginWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 59 "..\..\LoginWindow.xaml"
+        #line 62 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid grid1;
         
@@ -49,7 +49,7 @@ namespace Restaurant_Management {
         #line hidden
         
         
-        #line 60 "..\..\LoginWindow.xaml"
+        #line 63 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox usernameTextBox;
         
@@ -57,7 +57,7 @@ namespace Restaurant_Management {
         #line hidden
         
         
-        #line 78 "..\..\LoginWindow.xaml"
+        #line 81 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox textholder;
         
@@ -65,7 +65,7 @@ namespace Restaurant_Management {
         #line hidden
         
         
-        #line 93 "..\..\LoginWindow.xaml"
+        #line 96 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.PasswordBox passwordBox;
         
@@ -73,7 +73,7 @@ namespace Restaurant_Management {
         #line hidden
         
         
-        #line 104 "..\..\LoginWindow.xaml"
+        #line 107 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button loginButton;
         
@@ -81,7 +81,7 @@ namespace Restaurant_Management {
         #line hidden
         
         
-        #line 128 "..\..\LoginWindow.xaml"
+        #line 131 "..\..\LoginWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button registerButton;
         
@@ -120,15 +120,21 @@ namespace Restaurant_Management {
             {
             case 1:
             
-            #line 8 "..\..\LoginWindow.xaml"
+            #line 9 "..\..\LoginWindow.xaml"
             ((Restaurant_Management.LoginWindow)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.Window_Closing);
+            
+            #line default
+            #line hidden
+            
+            #line 11 "..\..\LoginWindow.xaml"
+            ((Restaurant_Management.LoginWindow)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
             
             #line default
             #line hidden
             return;
             case 2:
             
-            #line 22 "..\..\LoginWindow.xaml"
+            #line 25 "..\..\LoginWindow.xaml"
             ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
             
             #line default
@@ -149,7 +155,7 @@ namespace Restaurant_Management {
             case 7:
             this.loginButton = ((System.Windows.Controls.Button)(target));
             
-            #line 104 "..\..\LoginWindow.xaml"
+            #line 107 "..\..\LoginWindow.xaml"
             this.loginButton.Click += new System.Windows.RoutedEventHandler(this.loginButton_Click);
             
             #line default
@@ -158,7 +164,7 @@ namespace Restaurant_Management {
             case 8:
             this.registerButton = ((System.Windows.Controls.Button)(target));
             
-            #line 128 "..\..\LoginWindow.xaml"
+            #line 131 "..\..\LoginWindow.xaml"
             this.registerButton.Click += new System.Windows.RoutedEventHandler(this.registerButton_Click);
             
             #line default

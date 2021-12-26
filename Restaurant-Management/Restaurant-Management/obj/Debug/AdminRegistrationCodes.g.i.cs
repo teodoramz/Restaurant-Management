@@ -137,6 +137,12 @@ namespace Restaurant_Management {
             case 1:
             
             #line 8 "..\..\AdminRegistrationCodes.xaml"
+            ((Restaurant_Management.AdminRegistrationCodes)(target)).MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.Window_MouseDown);
+            
+            #line default
+            #line hidden
+            
+            #line 8 "..\..\AdminRegistrationCodes.xaml"
             ((Restaurant_Management.AdminRegistrationCodes)(target)).Closing += new System.ComponentModel.CancelEventHandler(this.Window_Closing);
             
             #line default

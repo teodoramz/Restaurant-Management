@@ -1,14 +1,19 @@
 ﻿
 
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\AdminCategoriesWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\AdminHistoryWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\AdminProductsWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\AdminRegistrationCodes.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\CategoriesWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\DashboardWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\EmployeesWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\HistoryWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\LoginWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\ProductsWindow.xaml;;
-FC:\Users\Teoo\Desktop\Anul3\Restaurant-Management\Restaurant-Management\RegisterWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Admin\AdminCategoriesWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Admin\AdminHistoryWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Admin\AdminProductsWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Admin\AdminRegistrationCodes.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Employee\CategoriesWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Admin\DashboardWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Admin\EmployeesWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Employee\HistoryWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Procedures\AddProcedures\AddProduct.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Procedures\EditProcedure\EditProduct.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Startup\LoginWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Employee\ProductsWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Startup\RegisterWindow.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Procedures\AddProcedures\AddCategory.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Procedures\EditProcedure\EditCategory.xaml;;
+FC:\Users\Teoo\Desktop\Restaurant-Management\Restaurant-Management\Restaurant-Management\Procedures\EditProcedure\EditEmployees.xaml;;
 

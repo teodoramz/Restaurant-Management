@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,88 +56,128 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="RegisterWindow.xaml.cs">
+    <Compile Include="Database\RestaurantManagementDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestaurantManagementDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Procedures\AddProcedures\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Procedures\EditProcedure\EditEmployees.xaml.cs">
+      <DependentUpon>EditEmployees.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Procedures\EditProcedure\EditProduct.xaml.cs">
+      <DependentUpon>EditProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Startup\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AdminCategoriesWindow.xaml">
+    <Page Include="Admin\AdminCategoriesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AdminHistoryWindow.xaml">
+    <Page Include="Admin\AdminHistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AdminProductsWindow.xaml">
+    <Page Include="Admin\AdminProductsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AdminRegistrationCodes.xaml">
+    <Page Include="Admin\AdminRegistrationCodes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CategoriesWindow.xaml">
+    <Page Include="Employee\CategoriesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="AdminCategoriesWindow.xaml.cs">
+    <Compile Include="Admin\AdminCategoriesWindow.xaml.cs">
       <DependentUpon>AdminCategoriesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminHistoryWindow.xaml.cs">
+    <Compile Include="Admin\AdminHistoryWindow.xaml.cs">
       <DependentUpon>AdminHistoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminProductsWindow.xaml.cs">
+    <Compile Include="Admin\AdminProductsWindow.xaml.cs">
       <DependentUpon>AdminProductsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminRegistrationCodes.xaml.cs">
+    <Compile Include="Admin\AdminRegistrationCodes.xaml.cs">
       <DependentUpon>AdminRegistrationCodes.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CategoriesWindow.xaml.cs">
+    <Compile Include="Employee\CategoriesWindow.xaml.cs">
       <DependentUpon>CategoriesWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="DashboardWindow.xaml">
+    <Page Include="Admin\DashboardWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EmployeesWindow.xaml">
+    <Page Include="Admin\EmployeesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="HistoryWindow.xaml">
+    <Page Include="Employee\HistoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginWindow.xaml">
+    <Page Include="Procedures\AddProcedures\AddProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProductsWindow.xaml">
+    <Page Include="Procedures\EditProcedure\EditEmployees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegisterWindow.xaml">
+    <Page Include="Procedures\EditProcedure\EditProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Startup\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Employee\ProductsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Startup\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Procedures\AddProcedures\AddCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Procedures\EditProcedure\EditCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashboardWindow.xaml.cs">
+    <Compile Include="Admin\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EmployeesWindow.xaml.cs">
+    <Compile Include="Admin\EmployeesWindow.xaml.cs">
       <DependentUpon>EmployeesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HistoryWindow.xaml.cs">
+    <Compile Include="Employee\HistoryWindow.xaml.cs">
       <DependentUpon>HistoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoginWindow.xaml.cs">
+    <Compile Include="Startup\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProductsWindow.xaml.cs">
+    <Compile Include="Employee\ProductsWindow.xaml.cs">
       <DependentUpon>ProductsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Procedures\AddProcedures\AddCategory.xaml.cs">
+      <DependentUpon>AddCategory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Procedures\EditProcedure\EditCategory.xaml.cs">
+      <DependentUpon>EditCategory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -155,6 +196,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Database\RestaurantManagementDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>RestaurantManagementDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database\RestaurantManagementDB.dbml.layout">
+      <DependentUpon>RestaurantManagementDB.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,6 +217,12 @@
     <Resource Include="Imagini\restaurant1.png" />
     <Resource Include="Imagini\restaurant2.png" />
     <Resource Include="Imagini\restaurant3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Procedures\DeleteProcedure\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
