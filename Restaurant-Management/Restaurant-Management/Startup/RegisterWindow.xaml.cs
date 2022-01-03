@@ -124,12 +124,23 @@ namespace Restaurant_Management
                 };
                 try
                 {
-                    rmDataContext.Users.InsertOnSubmit(newUser);
-                    rmDataContext.SubmitChanges();
-                    LoginWindow lw = new LoginWindow(username);
-                    lw.Show();
-                    this.Hide();
-                    MessageBox.Show("Registred succesfully! ");
+                    var users = (from u in rmDataContext.Users
+                                 where u.Username == username
+                                 select u).ToList();
+                    if (users.Count() == 0)
+                    {
+
+                        rmDataContext.Users.InsertOnSubmit(newUser);
+                        rmDataContext.SubmitChanges();
+                        LoginWindow lw = new LoginWindow(username);
+                        lw.Show();
+                        this.Hide();
+                        MessageBox.Show("Registred succesfully! ");
+                    }
+                    else
+                    {
+                        throw new Exception("Employee with this username already existed!");
+                    }
                 }
                 catch(Exception ex)
                 {

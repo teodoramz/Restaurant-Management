@@ -139,6 +139,29 @@ namespace Restaurant_Management
             try
             {
                 User user = rmDataContext.Users.Where(x => x.UserID == Convert.ToInt32(id)).FirstOrDefault();
+                RegistrationCode reg = rmDataContext.RegistrationCodes.Where(x => x.CreatedBy == user.UserID).FirstOrDefault();
+                List<History> history = rmDataContext.Histories.Where(x => x.IdUser == user.UserID).ToList();
+                if (history.Count() != 0)
+                {
+                    foreach (var x in history)
+                    {
+                        var helper = x;
+                        List<Sell> sell = rmDataContext.Sells.Where(y => y.IdHistory == x.IdHistory).ToList();
+                        if(sell.Count()!=0)
+                        {
+                            foreach (var z in sell)
+                            {
+                                rmDataContext.Sells.DeleteOnSubmit(z);
+                            }
+                        }
+                        rmDataContext.Histories.DeleteOnSubmit(helper);
+                    }
+                }
+                if (reg != null)
+                {
+                    rmDataContext.RegistrationCodes.DeleteOnSubmit(reg);
+                }
+
                 rmDataContext.Users.DeleteOnSubmit(user);
                 rmDataContext.SubmitChanges();
             }
@@ -261,6 +284,7 @@ namespace Restaurant_Management
             }
             if(nrUsers!=0)
             {
+                List<User> listUsers = new List<User>();
                 for(int i = 0; i<nrUsers; i++)
                 {
                     var user = new User
@@ -273,8 +297,16 @@ namespace Restaurant_Management
                                   where r.RoleName == roles[i] select r.RoleID).SingleOrDefault(),
                     };
 
-                    rmDataContext.Users.InsertOnSubmit(user);
-
+                    var usr = (from u in rmDataContext.Users where u.Username == user.Username select u).ToList();
+                    if(usr.Count()!=0)
+                    {
+                        MessageBox.Show($"Can't register a user with this credidentials! Prbl: Username:{user.Username}");
+                        return;
+                    }
+                }
+                foreach (var x in listUsers)
+                {
+                    rmDataContext.Users.InsertOnSubmit(x);
                 }
                 rmDataContext.SubmitChanges();
                 loadDataGrid();

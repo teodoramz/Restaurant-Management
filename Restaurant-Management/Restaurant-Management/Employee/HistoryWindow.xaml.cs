@@ -67,7 +67,8 @@ namespace Restaurant_Management
                         join p in rmDataContext.Products
                         on s.IdProduct equals p.ProductID
                         where h.IdUser == loggedUserID
-                        select new { ID = s.IdSell, Date = h.Date,
+                        orderby h.Date descending
+                         select new { ID = s.IdSell, Date = h.Date,
                                     Product = p.ProductName, Quantity = s.Quantity }).ToList();
 
             dataTableChosed.ItemsSource = sells;
